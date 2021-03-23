@@ -1,0 +1,244 @@
+/** Fix dropdown - Layout Ater */
+.dropdown-menu {
+    padding: 0px;
+    margin-top: 0px;
+    border: 0px;
+    border-radius: 0;
+    min-width: 11rem;
+}
+
+/** Fix Datatable table-actions btn */
+.table-actions .btn {
+    margin-right: 2px;
+    border-radius: 2px;
+}
+.table-actions.btn-group .btn-group {
+    min-height: 35px;
+}
+
+/** Fix Btns - Layout Ater */
+.btn:focus,
+.btn-group:focus {
+    /* outline: none !important;
+    box-shadow: none !important; */
+}
+
+/** Fix Input Search Table - Layout Ater */
+.dataTables_filter label {
+    background-color: #f5f5f5;
+    border: 0px !important;
+}
+.dataTables_filter input,
+.dataTables_filter input:focus {
+    background-color: transparent;
+    color: #333;
+}
+
+/** Fix position loading Datatable */
+.dataTables_wrapper #table_processing {
+    top: 206px;
+}
+
+/** Fix select readonly **/
+select[readonly] {
+    background: #eee; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+    pointer-events: none;
+    touch-action: none;
+}
+
+/* Fix CSS Select2 Validation */
+.was-validated .form-control:invalid + .select2 .select2-selection {
+    border-color: #dc3545 !important;
+}
+
+.was-validated .form-control:valid + .select2 .select2-selection {
+    border-color: #28a745 !important;
+}
+
+/** Fix background color tags */
+.label-info {
+    background-color: #08885b; /* primary color */
+
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 85%;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+
+/** Fix width table search */
+.table-ater {
+    width: 100% !important;
+}
+
+/* Tabela Small */
+.table-ater.table-sm .btn-group .btn-primary {
+    padding: .25rem .5rem;
+    font-size: .765625rem;
+    line-height: 1.5;
+}
+.table-ater.table-sm .btn-group .btn-primary i {
+    width: .765625rem;
+    height: .765625rem;
+    margin: .19140625rem 0;
+}
+
+
+/** Fix margin-bottom input type="file" **/
+.custom-file {
+    margin-bottom: 3rem;
+}
+.custom-file .custom-file-label {
+    position: relative;
+    top: initial;
+    left: initial;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+.custom-file .col-md-12 {
+    position: absolute;
+    z-index: 2;
+
+    top: 0px;
+    left: 0px;
+}
+
+.custom-file .btn-view {
+    display: inline-block;
+    vertical-align: top;
+
+    position: relative;
+    z-index: 5;
+}
+
+/* popover form image */
+.popover-image-100 {
+    width: 100%;
+    height: auto;
+}
+
+/** Fix border select2 **/
+.select2-container--bootstrap .select2-selection {
+    border: 1px solid #d8dbe0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 21, 0.075);
+}
+
+.bootstrap-tagsinput {
+    border: 1px solid #d8dbe0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 21, 0.075);
+
+    /* Form Control*/
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid;
+    color: #768192;
+    background-color: #fff;
+    border-color: #d8dbe0;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 21, 0.075);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 767px) {
+    .table-ater {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-ater .card-header .row .float-right .btn-primary {
+        margin-top: 10px;
+    }
+}
+
+/*Fix a11y do menu admin*/
+.c-sidebar-nav-dropdown-items {
+    display: none;
+}
+.c-sidebar-nav-dropdown.c-show > .c-sidebar-nav-dropdown-items {
+    display: block;
+}
+.logout-button {
+}
+.breadcrumb-item.active {
+}
+
+.btn-primary {
+    color: #fff;
+}
+
+.text-primary {
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    color: black !important;
+}
+.page-link {
+}
+.form-control,
+.form-control:focus {
+    color: #444;
+}
+
+.btn-danger {
+    /* #e55353 */
+    background-color: #c03d3d;
+    border-color: #c03d3d;
+}
+
+.h1,
+h1 {
+    font-size: 1.8rem;
+}
+
+.dataTables_wrapper {
+    min-height: 250px;
+    overflow-y: auto;
+}
+.dataTables_wrapper .table-bottom {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+abbr {
+    text-decoration: none !important;
+}
+
+.form-control:focus,
+body .select2-container--bootstrap.select2-container--focus .select2-selection,
+body .select2-container--bootstrap.select2-container--open .select2-selection {
+    /* box-shadow: inset 0 1px 1px #999, 0 0 0 0.2rem #999; */
+}
+
+.c-sidebar-nav-link:focus,
+.c-sidebar-nav-dropdown-toggle:focus {
+    border: 2px solid white !important;
+    outline: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.dataTables_processing {
+    z-index: 1000;
+}

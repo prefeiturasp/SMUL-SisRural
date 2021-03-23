@@ -1,0 +1,44 @@
+{
+    "name": "sisrural",
+    "author": "Base.digital",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "development": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "production": "cross-env NODE_ENV=production webpack --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "serve": "php artisan serve --host=0.0.0.0 --port=8000",
+        "clean": "php artisan config:clear &&  php artisan config:cache"
+    },
+    "devDependencies": {
+        "@coreui/coreui": "~3.0.0-beta.4",
+        "@fortawesome/fontawesome-free": "~5.9.0",
+        "axios": "~0.19",
+        "babel-core": "~7.0.0-bridge.0",
+        "babel-jest": "~24.8.0",
+        "bootstrap": "~4.3.1",
+        "cross-env": "~5.2.0",
+        "cross-var": "~1.1.0",
+        "jest": "~24.8.0",
+        "jquery": "~3.4.1",
+        "laravel-mix": "~4.0.16",
+        "lodash": "~4.17.13",
+        "pace": "git+https://github.com/CodeByZach/pace.git#v1.0.2",
+        "perfect-scrollbar": "~1.4.0",
+        "popper.js": "~1.15.0",
+        "resolve-url-loader": "~2.3.2",
+        "sass": "~1.21.0",
+        "sass-loader": "~7.1.0",
+        "sweetalert2": "~8.13.0",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "browserslist": {
+        "development": "last 1 version",
+        "production": ">2%, Firefox ESR"
+    },
+    "engines": {
+        "node": "12.14"
+    },
+    "dependencies": {
+        "puppeteer": "^2.1.1"
+    }
+}

@@ -1,0 +1,35 @@
+// Plugins
+
+// FontAwesome 5
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+// Header Styles
+.read-only,
+.logged-in-as {
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+$enable-shadows: true;
+
+$theme-colors: (
+    "primary": #08885b,
+    // "seconday": #56575a
+);
+
+$body-color: #3c4b64;
+
+$gray-base: #1b1c1f; //sidemenu
+$gray-600: #8a93a2; //icones
+
+$gray-100: #ebedef; //fundo da tela
+
+// $sidebar-light-nav-tabs-border-color:'blue';
+// $sidebar-light-nav-tabs-link-active-bg: #2c2e33;
+
+$table-color: #56575a;
+
+$input-focus-border-color: #c8f8ed;

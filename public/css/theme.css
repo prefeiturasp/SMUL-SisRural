@@ -1,0 +1,226 @@
+/** Fix Theme */
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+.select2-container--bootstrap.select2-container--open .select2-selection {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 21, 0.075),
+        0 0 0 0.2rem rgba(1, 153, 119, 0.25);
+    border-color: #c8f8ed;
+}
+
+.select2-container--bootstrap .select2-dropdown {
+    /* box-shadow: inset 0 1px 1px rgba(0, 0, 21, 0.075); */
+    border-color: #c8f8ed;
+}
+
+.c-app:not(.c-dark-theme) .c-header.c-header-fixed {
+    border: 0;
+    box-shadow: 0 2px 2px 0 rgba(60, 75, 100, 0.14),
+        0 3px 1px -2px rgba(60, 75, 100, 0.12),
+        0 1px 5px 0 rgba(60, 75, 100, 0.2);
+    -webkit-clip-path: inset(0 0 -1000px 0);
+    clip-path: inset(0 0 -1000px 0);
+}
+
+.c-app:not(.c-dark-theme) .card {
+    border: 0;
+    box-shadow: 0 1px 1px 0 rgba(60, 75, 100, 0.14),
+        0 2px 1px -1px rgba(60, 75, 100, 0.12),
+        0 1px 3px 0 rgba(60, 75, 100, 0.2);
+}
+
+/** New Theme */
+.c-sidebar-brand {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.c-sidebar .c-sidebar-nav-title {
+    font-size: 100%;
+    letter-spacing: 1.2px;
+    color: #aaa;
+}
+.c-sidebar .c-sidebar-nav-link,
+.c-sidebar .c-sidebar-nav-dropdown-toggle {
+    color: #fff;
+}
+.c-sidebar .c-sidebar-nav-link .c-sidebar-nav-icon,
+.c-sidebar .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
+    color: #fff;
+}
+.c-sidebar .c-sidebar-nav-link.c-active,
+.c-sidebar .c-active.c-sidebar-nav-dropdown-toggle,
+.c-sidebar-nav-dropdown-toggle.active {
+    background: rgb(44, 46, 51);
+}
+
+.c-sidebar-nav-item {
+    margin: 1px;
+}
+
+.c-header-nav .c-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(235, 237, 239);
+}
+
+.separator {
+    width: 1px;
+    height: 20px;
+    background-color: rgb(86, 87, 90);
+}
+
+.breadcrumb-item.active {
+    color: rgb(1, 99, 78);
+}
+.breadcrumb-item a {
+    color: inherit;
+}
+
+.card-ater .card-title {
+    font-weight: bold;
+    margin: 0px;
+    color: rgb(86, 87, 90);
+}
+.card-ater .card-body {
+    padding-bottom: 0.5rem;
+}
+.card-ater .table {
+    margin-bottom: 0px;
+}
+.card-info .card-body {
+    padding-bottom: 1.25rem;
+}
+
+.card-footer-ater {
+    margin-bottom: 20px;
+}
+.card-ater-black {
+    background-color: #f8f8f8;
+}
+.card-ater-black .card-header {
+    background-color: #f8f8f8;
+}
+
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f062";
+    right: 1.6em;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f063";
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    position: relative;
+
+    font-size: 0px;
+    color: #fff;
+    padding: 5px;
+    border: 1px solid rgb(228, 231, 235);
+    border-radius: 4px;
+}
+
+div.dataTables_wrapper div.dataTables_filter label:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f002";
+
+    color: rgb(158, 160, 165);
+    font-size: 14px;
+    font-weight: 900;
+    margin-left: 5px;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    border: 0px solid #fff;
+    box-shadow: none;
+    width: 230px;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: left;
+}
+
+table.dataTable th {
+    border-top: 0px;
+}
+
+div.dataTables_wrapper .table-bottom {
+    margin-top: 40px;
+}
+
+.table-ater .btn-secondary {
+    background-color: rgb(245, 245, 245);
+    color: rgb(86, 87, 90);
+    border: 0px;
+}
+
+.table-ater .btn-secondary:not(:disabled):not(.disabled):active,
+.table-ater .btn-secondary:not(:disabled):not(.disabled).active,
+.table-ater .show > .btn-secondary.dropdown-toggle {
+    background-color: rgb(245, 245, 245);
+}
+
+@media (max-width: 767px) {
+    table.dataTable thead > tr > th.sorting_asc,
+    table.dataTable thead > tr > th.sorting_desc,
+    table.dataTable thead > tr > th.sorting,
+    table.dataTable thead > tr > td.sorting_asc,
+    table.dataTable thead > tr > td.sorting_desc,
+    table.dataTable thead > tr > td.sorting {
+        padding-right: 45px;
+    }
+}
+
+abbr {
+    text-decoration: none !important;
+}
+
+.c-sidebar-lg-show #accessibility {
+    left: 340px;
+}
+#accessibility {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left: 84px;
+    top: 18px;
+    z-index: 1040;
+    transition: 0.25s;
+}
+#accessibility li {
+    margin-right: 20px;
+}
+#accessibility li span {
+    background: black;
+    color: white;
+    display: inline-block;
+    padding: 0px 8px;
+}
+
+@media (max-width: 991.98px) {
+    #accessibility {
+        display: none;
+    }
+}
+
+/* O fundo do modal fica por trás do "c-wrapper". Ex: Visualização de um plano de ação individual, clicar em "adicionar acompanhamento"*/
+/* .c-wrapper {
+    position: relative;
+    z-index: 1;
+} */
+.c-sidebar.c-sidebar-fixed {
+    z-index: 1035;
+}

@@ -1,0 +1,114 @@
+{
+    "name": "base/sisrural",
+    "type": "project",
+    "description": "Sistema de Assistência Técnica e Extensão Rural e Ambiental",
+    "keywords": [
+        "framework",
+        "laravel",
+        "boilerplate"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "albertcht/invisible-recaptcha": "^1.9",
+        "altek/accountant": "^1.2",
+        "altek/eventually": "^1.0",
+        "arcanedev/log-viewer": "^5.0",
+        "bensampo/laravel-enum": "^1.28",
+        "creativeorange/gravatar": "~1.0",
+        "danielme85/laravel-log-to-db": "^3.0",
+        "davejamesmiller/laravel-breadcrumbs": "^5.0",
+        "fideloper/proxy": "^4.0",
+        "grimzy/laravel-mysql-spatial": "^2.2",
+        "kris/laravel-form-builder": "^1.22",
+        "lab404/laravel-impersonate": "^1.4",
+        "langleyfoxall/laravel-nist-password-rules": "^4.0",
+        "laravel/framework": "^6.0",
+        "laravel/passport": "^8.0",
+        "laravel/socialite": "^4.1",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "llpo/mathepa": "^0.0.3",
+        "matthewbdaly/laravel-azure-storage": "^1.6",
+        "orangehill/iseed": "^2.6",
+        "phpoffice/phpspreadsheet": "^1.11",
+        "spatie/eloquent-sortable": "^3.7",
+        "spatie/laravel-html": "^2.22",
+        "spatie/laravel-permission": "^3.0",
+        "spinen/laravel-geometry": "^2.2",
+        "torann/geoip": "^1.0",
+        "verumconsilium/laravel-browsershot": "^1.1",
+        "webpatser/laravel-uuid": "^3.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "codedungeon/phpunit-result-printer": "^0.26.1",
+        "facade/ignition": "^1.4",
+        "facade/ignition-code-editor": "^1.0",
+        "facade/ignition-self-diagnosis": "^1.0",
+        "facade/ignition-tinker-tab": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^8.0",
+        "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "clear-all": [
+            "@php artisan clear-compiled",
+            "@php artisan cache:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "@php artisan config:clear",
+            "composer dumpautoload -o"
+        ],
+        "cache-all": [
+            "@php artisan config:cache",
+            "@php artisan route:cache"
+        ],
+        "cc": [
+            "composer clear-all",
+            "composer cache-all"
+        ]
+    }
+}

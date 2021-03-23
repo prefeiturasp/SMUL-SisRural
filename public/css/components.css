@@ -1,0 +1,298 @@
+/** Table - input - Checklist **/
+.table-input {
+    overflow: auto;
+}
+.table-input-tabela {
+    table-layout: fixed;
+    white-space: nowrap;
+    width: auto;
+    min-width: 100%;
+    border: 0px;
+    margin-left: -0.4rem;
+}
+.table-input-tabela th {
+    text-transform: uppercase;
+    /* font-size: 120%; */
+    font-weight: normal;
+    /* background-color: #f1f1f1; */
+    border: 0px;
+    padding: 0.4rem;
+}
+.table-input-tabela td {
+    border: 0px;
+    padding: 0.4rem;
+}
+.table-input-tabela textarea {
+    width: 100%;
+    min-width: 150px;
+}
+.table-input .btn-primary {
+    margin-top: 10px;
+}
+
+/** Badge color **/
+.badge-ater {
+    display: inline-block;
+    vertical-align: top;
+
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 10px;
+    border-radius: 15px;
+
+    max-width: 300px;
+    white-space: initial;
+}
+.badge-cinza {
+    background-color: #e4e7eb;
+}
+.badge-verde {
+    background-color: #77d662;
+}
+.badge-amarelo {
+    background-color: #fee07e;
+}
+.badge-vermelho {
+    background-color: #ff9ea0;
+}
+
+/** Select Semafaro **/
+.select-color[readonly="readonly"] {
+    opacity: 0.6;
+}
+.select-color option {
+    color: #1b1c1f;
+    background-color: #fff;
+}
+.select-color option.color-cinza {
+    background-color: #e4e7eb;
+}
+.select-color option.color-verde {
+    background-color: #77d662;
+}
+.select-color option.color-amarelo {
+    background-color: #fee07e;
+}
+.select-color option.color-vermelho {
+    background-color: #ff9ea0;
+}
+
+.select-color[color="cinza"] {
+    color: #333;
+    background-color: #e4e7eb;
+}
+.select-color[color="verde"] {
+    color: #333;
+    background-color: #77d662;
+}
+.select-color[color="amarelo"] {
+    color: #333;
+    background-color: #fee07e;
+}
+.select-color[color="vermelho"] {
+    color: #333;
+    background-color: #ff9ea0;
+}
+
+/** Table Pontuação */
+.table-pontuacao tr,
+.table-pontuacao td[class^="bg-"] {
+    color: #56575a;
+}
+
+.table-pontuacao .bg-verde {
+    background-color: #77d662 !important;
+}
+.table-pontuacao .bg-amarelo {
+    background-color: #fee07e !important;
+}
+.table-pontuacao .bg-vermelho {
+    background-color: #ff9ea0 !important;
+}
+.table-pontuacao .bg-cinza {
+    background-color: #f5f5f5 !important;
+}
+.table-pontuacao .with-border {
+    border: 1px solid #e4e7eb;
+}
+
+/* Card Ater */
+.card-ater.card-custom-border {
+    border: 1px solid #d8dbe0 !important;
+    box-shadow: none !important;
+}
+
+/* Card Square */
+.card-square {
+    width: 100%;
+}
+.card-square .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-square .card-body h1,
+.card-square .card-body h5 {
+    margin-bottom: 0;
+}
+
+.card-square:hover {
+    text-decoration: none;
+}
+.card-square .square {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+    border-radius: 2px;
+
+    width: 50px;
+    height: 50px;
+}
+.card-square-white .square {
+    border: 1px solid #08885b;
+}
+.card-square-white:hover {
+    background-color: #f4f4f4 !important;
+}
+
+/* File Ext */
+.fa-file-ext {
+    pointer-events: none;
+
+    position: relative;
+    font-size: 38px;
+}
+.fa-file-ext span {
+    position: absolute;
+    z-index: 5;
+
+    left: 0px;
+    right: 0px;
+    bottom: 15%;
+    text-align: center;
+    font-size: 11px;
+    font-family: "Arial";
+    font-weight: bold;
+}
+
+/** Card Iframe Add */
+.card-iframe-add {
+    /**/
+}
+
+.card-iframe-add .card-header {
+    border-bottom: 0px;
+    border-radius: 6px;
+}
+
+/** Select2 com ícone **/
+.select2-with-icon {
+    display: flex;
+    align-items: center;
+    line-height: initial;
+}
+
+.select2-with-icon span {
+    height: initial;
+}
+
+.select2-with-icon img {
+    margin-right: 5px;
+}
+
+/*
+    card-add-view
+*/
+.card-add-view {
+    border: 1px solid #08885b;
+    min-height: calc(100% - 1.5rem);
+}
+.card-add-view .card-header {
+    color: #56575a;
+}
+.card-add-view .square {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #56575a;
+    border-radius: 2px;
+
+    width: 30px;
+    height: 30px;
+}
+.card-add-view .title {
+    font-size: 18px;
+}
+.card-add-view .card-body .btn {
+    font-size: 18px;
+}
+.card-add-view .img {
+    width: 100%;
+    height: auto;
+}
+.card-add-view .card-body.no-padding {
+    padding: 0px;
+}
+
+/**
+card-count, card-chart
+**/
+.card-count {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    height: 100%;
+
+    border: 1px solid #dfe0eb;
+    padding: 10px 15px;
+
+    border-radius: 4px;
+}
+.card-count .txt-title {
+    text-align: center;
+    font-size: 14px;
+    color: #9fa2b4;
+}
+.card-count .txt-text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #56575a;
+}
+.card-chart {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    border: 1px solid #dfe0eb;
+    padding: 10px 15px;
+
+    border-radius: 4px;
+}
+.card-chart .txt-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #56575a;
+}
+.card-chart .chart {
+    padding: 15px 0px;
+}
+
+.bg-f8f8f8 {
+    background-color: #f8f8f8;
+}
+.bg-white {
+    background-color: #fff;
+}
+
+.icon-status {
+    width: 15px;
+    height: auto;
+    margin-top: -2px;
+    margin-right: 2px;
+}
