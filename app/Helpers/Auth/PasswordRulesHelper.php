@@ -15,7 +15,8 @@ class PasswordRulesHelper extends PasswordRules
      * @param  mixed $username
      * @return array
      */
-    public static function register($username)
+    #public static function register($username)
+    public static function register($username, $requireConfirmation = true)
     {
         return [
             'required',
