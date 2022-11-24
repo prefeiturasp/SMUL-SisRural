@@ -22,7 +22,7 @@
                     </div>
                 @endif
 
-                @if (@!$pergunta)
+                @if (!@$pergunta)
                     @include('backend.components.card-iframe-add.html', ["title"=>"Respostas", "data"=>"cadastrar-respostas", "label"=>"Adicionar Respostas", "class"=>"card-respostas"])
                 @endif
             @endcan
