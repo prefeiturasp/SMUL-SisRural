@@ -4,8 +4,8 @@
 
 
 <div class="c-sidebar-brand">
-        <img alt="Logomarca Sisrural" class="c-sidebar-brand-full" src="/img/backend/logo.svg" width="180">
-        <img  alt="Logomarca Sisrural" class="c-sidebar-brand-minimized" src="/img/backend/logo.svg"  width="24" height="26">
+        <img alt="Logomarca Sisrural" class="c-sidebar-brand-full" src="/img/backend/3-Horta em Casa.jpg" width="180">
+        <img  alt="Logomarca Sisrural" class="c-sidebar-brand-minimized" src="/img/backend/3-Horta em Casa.jpg"  width="24" height="26">
     </div>
 
     <ul class="c-sidebar-nav ps ps--active-y" data-drodpown-accordion="true">
