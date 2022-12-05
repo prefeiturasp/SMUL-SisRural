@@ -97,6 +97,14 @@ class CadernoForm extends Form
                             ],
                         ]
                     );
+                } else if ($v['tipo'] == TipoTemplatePerguntaEnum::Data) {
+                    $this->add(
+                        $v['id'],
+                        'date',
+                        [
+                            'label' => $v['pergunta'],
+                        ]
+                    );
                 }
             }
         }

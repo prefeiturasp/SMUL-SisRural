@@ -54,6 +54,7 @@ return [
         TipoTemplatePerguntaEnum::Text => 'Texto',
         TipoTemplatePerguntaEnum::Check => 'Uma Resposta',
         TipoTemplatePerguntaEnum::MultipleCheck => 'Múltiplas Respostas',
+        TipoTemplatePerguntaEnum::Data => 'Data',
     ],
 
     PlanoAcaoClassificacaoEnum::class => [
