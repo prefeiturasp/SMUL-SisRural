@@ -222,9 +222,21 @@ class CadernoController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status', 'custom-redirect']);
+        $produtor = \App\Models\Core\ProdutorModel::where('id', $data['produtor_id'])->first();
+        $unidadeProdutiva = \App\Models\Core\UnidadeProdutivaModel::where('id', $data['unidade_produtiva_id'])->first();
+
         $messageSuccess = 'Caderno criado com sucesso!';
 
-        $form = $this->form(CadernoForm::class);
+        $form = $this->form(CadernoForm::class, [
+            'id' => 'form-builder',
+            'method' => 'PATCH',
+            // 'url' => route('admin.core.cadernos.update', compact('caderno')),
+            'class' => 'needs-validation',
+            'novalidate' => true,
+            // 'model' => $caderno,
+            'data' => ['produtor' => $produtor, 'unidadeProdutiva' => $unidadeProdutiva],
+        ]);
 
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
@@ -336,7 +348,20 @@ class CadernoController extends Controller
      */
     public function update(Request $request, CadernoModel $caderno)
     {
-        $form = $this->form(CadernoForm::class);
+
+        $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status', 'custom-redirect']);
+        $produtor = \App\Models\Core\ProdutorModel::where('id', $data['produtor_id'])->first();
+        $unidadeProdutiva = \App\Models\Core\UnidadeProdutivaModel::where('id', $data['unidade_produtiva_id'])->first();
+
+        $form = $this->form(CadernoForm::class, [
+            'id' => 'form-builder',
+            'method' => 'PATCH',
+            // 'url' => route('admin.core.cadernos.update', compact('caderno')),
+            'class' => 'needs-validation',
+            'novalidate' => true,
+            // 'model' => $caderno,
+            'data' => ['produtor' => $produtor, 'unidadeProdutiva' => $unidadeProdutiva],
+        ]);
 
         //Válida se todos os campos obrigatórios foram preenchidos
         if (!$form->isValid()) {

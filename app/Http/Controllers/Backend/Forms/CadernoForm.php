@@ -13,16 +13,19 @@ class CadernoForm extends Form
 {
     public function buildForm()
     {
-        $produtor = null;
-        if (@$this->model->produtor_id) {
-            $produtor = \App\Models\Core\ProdutorModel::where('id', $this->model->produtor_id)->first();
-        }
+
+        // $produtor = null;
+        // if ($this->model->produtor_id) {
+        //     $produtor = \App\Models\Core\ProdutorModel::where('id', $this->model->produtor_id)->first();
+        // }
 
         /**
          * Dados gerais (texto, sem edição), apenas para visualização
          */
-        $produtor = @$this->data['produtor'];
-        $unidadeProdutiva = @$this->data['unidadeProdutiva'];
+        $produtor = $this->data['produtor'];
+        $unidadeProdutiva = $this->data['unidadeProdutiva'];
+
+
 
         $this->add('card-start-1', 'card-start', [
             'title' => 'Informações ',
