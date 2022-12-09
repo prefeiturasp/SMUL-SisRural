@@ -19,27 +19,25 @@ class DominiosSeeder extends Seeder
         $this->disableForeignKeys();
 
         \App\Models\Core\DominioModel::insert([
-            ['nome' => 'ATER', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'PSA', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Protocolo Boas Práticas', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Protocolo de Transição', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Horta em Casa - Maricá', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 
         \App\Models\Core\UnidadeOperacionalModel::insert([
-            ['nome' => 'CAE Zona Sul', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'CAE Zona Norte', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'PSA Edital', "dominio_id" => 2, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Maricá - Centro', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Ponta Negra', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Inoã', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Itaipuaçu', "dominio_id" => 1, 'endereco' => '', 'telefone' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 
         \App\Models\Core\DominioAbrangenciaEstadosModel::insert([
-            ['dominio_id' => 1, 'estado_id' => 35], //são paulo
-            ['dominio_id' => 2, 'estado_id' => 43], //rio grande do sul
+            ['dominio_id' => 1, 'estado_id' => 33], //Rio de Janeiro
         ]);
 
         \App\Models\Core\UnidadeOperacionalAbrangenciaEstadosModel::insert([
-            ['unidade_operacional_id' => 1, 'estado_id' => 35], //são paulo
-            ['unidade_operacional_id' => 2, 'estado_id' => 35], //são paulo
-            ['unidade_operacional_id' => 3, 'estado_id' => 43], //rio grande do sul
+            ['unidade_operacional_id' => 1, 'estado_id' => 33], //Rio de Janeiro
+            ['unidade_operacional_id' => 2, 'estado_id' => 33], //Rio de Janeiro
+            ['unidade_operacional_id' => 3, 'estado_id' => 33], //Rio de Janeiro
+            ['unidade_operacional_id' => 4, 'estado_id' => 33], //Rio de Janeiro
         ]);
 
         $this->enableForeignKeys();
