@@ -8,7 +8,7 @@
     <script>
         function chart_5_5_caderno_tecnico(ret) {
             var values = [
-                ['Técnico', 'Total de Cadernos']
+                ['Técnico/a', 'Total de Cadernos']
             ];
 
             if (!ret) {

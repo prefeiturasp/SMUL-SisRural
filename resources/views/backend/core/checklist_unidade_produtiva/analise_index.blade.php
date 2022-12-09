@@ -21,7 +21,7 @@
                     <th width="60">#</th>
                     <th>Formulário/Plano de ação</th>
                     <th>Unid. Produtiva</th>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                     <th>Criado em</th>
                     <th>Status</th>
                     <th>Status Fluxo Aprov.</th>

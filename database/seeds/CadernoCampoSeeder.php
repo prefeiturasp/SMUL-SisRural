@@ -45,7 +45,7 @@ class CadernoCampoSeeder extends Seeder
             // ['pergunta' => 'ID Unidade Produtiva', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
 
             ['id' => 1, 'pergunta' => 'Data da Visita', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 2, 'pergunta' => 'Técnico (s)', 'tipo' => 'multiple_check', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 2, 'pergunta' => 'Técnico/a (s)', 'tipo' => 'multiple_check', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 3, 'pergunta' => 'Tipo Atividade', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 4, 'pergunta' => 'Finalidade da Atividade', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 5, 'pergunta' => 'Áreas / Talhões', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],

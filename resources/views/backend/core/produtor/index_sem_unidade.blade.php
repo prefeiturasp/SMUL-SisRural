@@ -23,7 +23,7 @@
                         <th><abbr title="Cadastro de Pessoa Física / Cadastro Nacional de Pessoa Jurídica">CPF/CNPJ</abbr>
                         </th>
                         <th>Telefone</th>
-                        <th>Coproprietários</th>
+                        <th>Coproprietários/as</th>
                         <th>Município</th>
                         <th>Estado</th>
                         <th width="60">Ações</th>

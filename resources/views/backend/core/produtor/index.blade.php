@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-6">
                     <h1 class="card-title mb-0 mt-1 h4">
-                        Lista de Produtores
+                        Lista de Produtores/as
                     </h1>
                 </div>
 
@@ -40,7 +40,7 @@
                         <th><abbr title="Cadastro de Pessoa Física / Cadastro Nacional de Pessoa Jurídica">CPF/CNPJ</abbr>
                         </th>
                         <th>Telefone</th>
-                        <th>Coproprietários</th>
+                        <th>Coproprietários/as</th>
                         <th>Município</th>
                         <th>Estado</th>
                         <th>Palavras chave</th>

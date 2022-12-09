@@ -128,8 +128,8 @@ return [
         RolesEnum::Admin => 'Administrador',
         RolesEnum::Dominio => 'Domínio',
         RolesEnum::UnidOperacional => 'Unidade Operacional',
-        RolesEnum::Tecnico => 'Técnico',
-        RolesEnum::TecnicoExterno => 'Técnico Externo'
+        RolesEnum::Tecnico => 'Técnico/a',
+        RolesEnum::TecnicoExterno => 'Técnico/a Externo/a'
     ],
 
     ProdutorUnidadeProdutivaStatusEnum::class => [

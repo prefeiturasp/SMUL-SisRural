@@ -48,7 +48,7 @@ class ChartService
     }
 
     /**
-     * Produtores
+     * Produtores/as
      *
      * Chart_1_2
      * Chart_1_3

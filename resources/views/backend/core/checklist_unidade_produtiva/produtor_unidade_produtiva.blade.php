@@ -21,7 +21,7 @@
                         <th width="60">#</th>
                         <th>Produtor/a</th>
                         <th><abbr title="Cadastro de Pessoa Física">CPF</abbr></th>
-                        <th>Coproprietários</th>
+                        <th>Coproprietários/as</th>
                         <th>Unid. Produtiva</th>
                         <th>Cidade</th>
                         <th>Estado</th>

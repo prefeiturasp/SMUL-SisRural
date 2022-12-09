@@ -3,13 +3,13 @@
     @include('backend.components.card-count.index',
         [
             'id'=>'chart_1_2_produtor',
-            'title' => 'Produtores Cadastrados',
+            'title' => 'Produtores/as Cadastrados/as',
             'text'=>''
         ]
     )
 </span>
 
-@modal(['id'=>'modal_chart_1_2_produtor', 'title'=>'Produtores Cadastrados'])
+@modal(['id'=>'modal_chart_1_2_produtor', 'title'=>'Produtores/as Cadastrados/as'])
     @slot('body')
         <table class="table table-sm table-ater">
             <thead>

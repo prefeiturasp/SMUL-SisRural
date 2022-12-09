@@ -67,7 +67,7 @@ class ChecklistForm extends Form
                 'tag' => 'b'
             ],
         ])->add('usuarios', 'select', [
-            'label' => 'Técnicos',
+            'label' => 'Técnicos/as',
             'choices' => User::whereHas('roles', function ($q) {
                 $q->where('name', 'Tecnico');
                 $q->orWhere('name', 'Unidade Operacional');

@@ -30,7 +30,7 @@
 
                                     @if ($socios)
                                         <div class="text-black-50">
-                                            Coproprietários: <span>{{$socios}}</span>
+                                            Coproprietários/as: <span>{{$socios}}</span>
                                         </div>
                                     @endif
                                 </div>

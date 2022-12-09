@@ -45,7 +45,7 @@ http://localhost:8000/admin/regiao
 -   Recebe um arquivo KML
 -   Ele pode ser gerado no link http://www.birdtheme.org/useful/v3tool.html (Explicação no README.MD)
 
-# Produtores
+# Produtores/as
 
 http://localhost:8000/admin/produtor
 
@@ -71,7 +71,7 @@ http://localhost:8000/admin/unidade_produtiva
 
 ---
 
-RESUMO Domínio, Unidade Operacional, Abrangências, Produtores, Unidades Produtivas
+RESUMO Domínio, Unidade Operacional, Abrangências, Produtores/as, Unidades Produtivas
 
 ---
 
@@ -185,7 +185,7 @@ http://localhost:8000/admin/plano_acao_coletivo
 
 ## Tipo: Coletivo
 
--   Plano de ação coletivo, N Produtores/Unidades Produtivas
+-   Plano de ação coletivo, N Produtores/as x Unidades Produtivas
 -   N Ações
 -   Para cada produtor é gerado um Plano de Ação vinculado ao Plano de Ação Pai
 -   Para cada PDA do produtor, é gerado as ações previamente cadastradas no Plano de Ação Pai

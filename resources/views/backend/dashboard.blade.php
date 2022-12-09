@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    @cardaddview(['title'=>'Produtores', 'total'=>$totalProdutor, 'icon'=>'c-icon-lg cil-address-book', 'labelAdd'=>'Novo Produtor/a', 'linkAdd'=>route('admin.core.novo_produtor_unidade_produtiva.create'), 'labelView'=>'Visualizar', 'linkView'=>route('admin.core.produtor.index'), 'permissionView'=>'view menu farmers', 'permissionAdd'=>'create same operational units farmers'])
+                    @cardaddview(['title'=>'Produtores/as', 'total'=>$totalProdutor, 'icon'=>'c-icon-lg cil-address-book', 'labelAdd'=>'Novo/a Produtor/a', 'linkAdd'=>route('admin.core.novo_produtor_unidade_produtiva.create'), 'labelView'=>'Visualizar', 'linkView'=>route('admin.core.produtor.index'), 'permissionView'=>'view menu farmers', 'permissionAdd'=>'create same operational units farmers'])
                     @endcardaddview
                 </div>
 
@@ -51,7 +51,7 @@
                                 <th>Nome</th>
                                 <th><abbr title="Cadastro de Pessoa Física / Cadastro Nacional de Pessoa Jurídica">CPF/CNPJ</abbr></th>
                                 <th>Telefone</th>
-                                <th>Coproprietários</th>
+                                <th>Coproprietários/as</th>
                                 <th>Município</th>
                                 <th>Estado</th>
                                 <th>Palavras chave</th>

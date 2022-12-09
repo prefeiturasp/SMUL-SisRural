@@ -31,7 +31,7 @@
 
                     @if ($planoAcao->unidade_produtiva->socios)
                         <tr>
-                            <th>Coproprietários</th>
+                            <th>Coproprietários/as</th>
                             <td>{{$planoAcao->unidade_produtiva->socios}}</td>
                         </tr>
                     @endif

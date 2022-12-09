@@ -110,7 +110,7 @@ $templateCaderno = $templateCaderno->mapWithKeys(function ($v) {
 
                     @cannot('report restricted')
                     <div class="col-md-3">
-                        {{ html()->label('Produtores')->for('produtor_id') }}
+                        {{ html()->label('Produtores/as')->for('produtor_id') }}
                         {{ html()->select('produtor_id[]', $produtores)->class('form-control')->multiple()->value(request()->input('produtor_id')) }}
                     </div>
                     <div class="col-md-3">
@@ -149,7 +149,7 @@ $templateCaderno = $templateCaderno->mapWithKeys(function ($v) {
                     </div>
 
                     <div class="col-md-3">
-                        {{ html()->label('Técnicos')->for('atuacao_tecnico_id') }}
+                        {{ html()->label('Técnicos/as')->for('atuacao_tecnico_id') }}
                         {{ html()->select('atuacao_tecnico_id[]', $atuacaoTecnicos)->class('form-control')->multiple()->value(request()->input('atuacao_tecnico_id')) }}
                     </div>
                 </div>

@@ -22,7 +22,7 @@
                         <th>Produtor/a</th>
                         <th><abbr title="Cadastro de Pessoa Física">CPF</abbr></th>
                         <th>Unidade Produtiva</th>
-                        <th>Coproprietários</th>
+                        <th>Coproprietários/as</th>
                         <th>Cidade</th>
                         <th>Estado</th>
                         <th width="60">Ações</th>

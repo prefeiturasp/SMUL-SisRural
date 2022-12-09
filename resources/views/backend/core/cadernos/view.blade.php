@@ -35,7 +35,7 @@
                 </tr>
 
                 <tr>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                     <td>{{$caderno->usuario->full_name}}</td>
                 </tr>
 

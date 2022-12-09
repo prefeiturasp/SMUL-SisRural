@@ -110,9 +110,9 @@ trait ReportUnidadeProdutivaTrait
                     [
                         'Criado em',
                         'Atualizado em',
-                        'ID Produtor',
-                        'Produtor',
-                        'Coproprietários',
+                        'ID Produtor/a',
+                        'Produtor/a',
+                        'Coproprietários/as',
                         'Status',
                         'Status - Observação',
                         'CPF',

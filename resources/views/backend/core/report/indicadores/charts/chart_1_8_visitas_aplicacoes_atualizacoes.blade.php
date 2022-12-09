@@ -85,7 +85,7 @@
     <script>
         function chart_1_8_visitas_aplicacoes_atualizacoes(ret) {
             var values =[
-                ['Mês/Ano', 'Novos Produtores', 'Cadernos', 'Formulário', 'Plano de Ação'],
+                ['Mês/Ano', 'Novos/as Produtores/as', 'Cadernos', 'Formulário', 'Plano de Ação'],
 
                 //P/ gráfico com anotations (google.visualization.ColumnChart)
                 // ['Mês/Ano', 'Novos Produtores', { role: 'annotation' }, 'Cadernos',  { role: 'annotation' }, 'Formulário', { role: 'annotation' }, 'Plano de Ação', { role: 'annotation' }],

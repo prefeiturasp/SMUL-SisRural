@@ -28,7 +28,7 @@
                     <th>Perguntas</th>
                     <th>Domínio</th>
                     <th>Unid. Operacionais</th>
-                    <th>Usuários</th>
+                    <th>Usuários/as</th>
                     <th>Status</th>
                     <th>Aprovação?</th>
                     <th width="60">Ações</th>

@@ -52,7 +52,7 @@ class PlanoAcaoComFormularioForm extends Form
 
             if (@$unidadeProdutiva['socios']) {
                 $this->add('socios', 'static', [
-                    'label' => 'Coproprietários',
+                    'label' => 'Coproprietários/as',
                     'tag' => 'b',
                     'value' => $unidadeProdutiva['socios']
                 ]);

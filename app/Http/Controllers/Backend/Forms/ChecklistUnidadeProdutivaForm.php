@@ -37,7 +37,7 @@ class ChecklistUnidadeProdutivaForm extends Form
 
             if (@$unidadeProdutiva['socios']) {
                 $this->add('socios', 'static', [
-                    'label' => 'Coproprietários',
+                    'label' => 'Coproprietários/as',
                     'tag' => 'b',
                     'value' => $unidadeProdutiva['socios']
                 ]);
@@ -48,7 +48,7 @@ class ChecklistUnidadeProdutivaForm extends Form
                 'tag' => 'b',
                 'value' => $unidadeProdutiva['nome']
             ])->add('tecnico', 'static', [
-                'label' => 'Técnico',
+                'label' => 'Técnico/a',
                 'tag' => 'b',
                 'value' => @$this->data['usuario'] ? $this->data['usuario']->first_name . ' ' . $this->data['usuario']->last_name : auth()->user()->first_name . ' ' . auth()->user()->last_name
             ])->add('instrucoes', 'static', [

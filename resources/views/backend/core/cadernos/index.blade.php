@@ -42,7 +42,7 @@
                     <th>Produtor/a</th>
                     <th>Unidade Produtiva</th>
                     <th>Status</th>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                     <th>Criado em</th>
                     <th></th>
                     <th></th>

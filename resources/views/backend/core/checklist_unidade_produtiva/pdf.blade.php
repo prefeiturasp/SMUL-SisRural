@@ -21,7 +21,7 @@
 
                 @if (@$checklistUnidadeProdutiva->unidade_produtiva->socios)
                     <tr>
-                        <th>Coproprietários</th>
+                        <th>Coproprietários/as</th>
                         <td>{{$checklistUnidadeProdutiva->unidade_produtiva->socios}}</td>
                     </tr>
                 @endif
@@ -32,7 +32,7 @@
                 </tr>
 
                 <tr>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                     <td>{{@$checklistUnidadeProdutiva->usuario->full_name}}</td>
                 </tr>
             </table>

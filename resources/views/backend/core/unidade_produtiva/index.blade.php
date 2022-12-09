@@ -32,8 +32,8 @@
                     <th>Nome</th>
                     <th>Cidade</th>
                     <th>Estado</th>
-                    <th>Produtores</th>
-                    <th>Coproprietários</th>
+                    <th>Produtores/as</th>
+                    <th>Coproprietários/as</th>
                     <th width="60">Ações</th>
                 </tr>
                 </thead>

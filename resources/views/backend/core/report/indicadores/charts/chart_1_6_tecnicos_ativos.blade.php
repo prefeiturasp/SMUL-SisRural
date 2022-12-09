@@ -2,18 +2,18 @@
     @include('backend.components.card-count.index',
         [
             'id'=>'chart_1_6_tecnicos_ativos',
-            'title' => 'Técnicos Ativos',
+            'title' => 'Técnicos/as Ativos',
             'text'=>''
         ]
     )
 </span>
 
-@modal(['id'=>'modal_chart_1_6_tecnicos_ativos', 'title'=>'Técnicos ativos'])
+@modal(['id'=>'modal_chart_1_6_tecnicos_ativos', 'title'=>'Técnicos/as ativos/as'])
     @slot('body')
         <table class="table table-sm table-ater">
             <thead>
                 <tr>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                 </tr>
             </thead>
         </table>

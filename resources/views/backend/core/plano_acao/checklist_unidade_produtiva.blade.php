@@ -21,9 +21,9 @@
                     <th width="60">#</th>
                     <th>Formulário</th>
                     <th>Produtor/a</th>
-                    <th>Coproprietários</th>
+                    <th>Coproprietários/as</th>
                     <th>Unid. Produtiva</th>
-                    <th>Técnico</th>
+                    <th>Técnico/a</th>
                     <th>Criado em</th>
                     <th>Status</th>
                     <th></th>

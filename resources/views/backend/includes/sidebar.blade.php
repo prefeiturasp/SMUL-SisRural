@@ -43,7 +43,7 @@
                             active_class(Route::is('admin.core.novo_produtor_unidade_produtiva.*'), 'c-active')
                         }}" href="{{ route('admin.core.novo_produtor_unidade_produtiva.create') }}">
                             <i class="c-sidebar-nav-icon c-icon cil-plus"></i>
-                            Novo Produtor / Unidade Prod.
+                            Novo/a Produtor/a / Unidade Prod.
                         </a>
                     </li>
                 @endcanany
@@ -53,7 +53,7 @@
                 <li class="c-sidebar-nav-dropdown {{ Route::is('admin.core.produtor.*') ? 'c-show' : '' }}">
                     <a accesskey="p" class="c-sidebar-nav-dropdown-toggle {{ active_class(Route::is('admin.core.produtor.*')) }}" href="#">
                         <i class="c-sidebar-nav-icon c-icon cil-address-book"></i>
-                        Produtores
+                        Produtores/as
                     </a>
 
                     <ul class="c-sidebar-nav-dropdown-items">
@@ -279,7 +279,7 @@
                         active_class(Route::is('admin.auth.user.*'), 'c-active')
                     }}" href="{{ route('admin.auth.user.index') }}">
                         <i class="c-sidebar-nav-icon c-icon cil-people"></i>
-                        Usuários
+                        Usuários/as
                     </a>
                 </li>
             @endcan
@@ -380,7 +380,7 @@
                         active_class(Route::is('admin.auth.user.*'), 'c-active')
                     }}" href="{{ route('admin.auth.user.index') }}">
                         <i class="c-sidebar-nav-icon c-icon cil-people"></i>
-                        Usuários
+                        Usuários/as
                     </a>
                 </li>
             @endcan
@@ -521,14 +521,14 @@
                         active_class(Route::is('admin.core.importador.*'), 'c-active')
                     }}" href="{{ route('admin.core.importador.create') }}">
                         <i class="c-sidebar-nav-icon c-icon cil-shield-alt"></i>
-                        Importar Produtores
+                        Importar Produtores/as
                     </a>
 
                    <a class="c-sidebar-nav-link {{
                         active_class(Route::is('admin.core.importador.*'), 'c-active')
                     }}" href="{{ route('admin.core.importador.editProdutor') }}">
                         <i class="c-sidebar-nav-icon c-icon cil-shield-alt"></i>
-                        Atualizar Produtores (Alguns Dados)
+                        Atualizar Produtores/as (Alguns Dados)
                     </a>
 
                     <a class="c-sidebar-nav-link {{
@@ -549,7 +549,7 @@
                         active_class(Route::is('admin.core.importador.createUsuarios'), 'c-active')
                     }}" href="{{ route('admin.core.importador.createUsuarios') }}">
                         <i class="c-sidebar-nav-icon c-icon cil-shield-alt"></i>
-                        Importar Usuários
+                        Importar Usuários/as
                     </a>
                 </li>
             @endadmin
