@@ -192,8 +192,8 @@ class CadernoController extends Controller
         }
 
         foreach ($questions as $k => $v) {
-            //Extrai o tipo de pergunta, para saber se será salvo no "resposta_id" ou no "resposta" (caso texto)
-            $isTexto = $perguntasTipo[$k] == TipoTemplatePerguntaEnum::Text;
+            //Extrai o tipo de pergunta, para saber se será salvo no "resposta_id" ou no "resposta" (caso texto ou data)
+            $isTexto = $perguntasTipo[$k] == (TipoTemplatePerguntaEnum::Text || TipoTemplatePerguntaEnum::Data);
 
             $template_resposta_id = $isTexto ? null : $v;
             $resposta = $isTexto ? $v : null;

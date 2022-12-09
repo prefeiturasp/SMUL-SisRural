@@ -54,6 +54,7 @@ class CadernoForm extends Form
          * Texto livre - Text
          * Uma escolha - Check
          * Multipla escolha - MultipleCheck
+         * Data - Date
          */
         $template = @$this->data['template'];
         if ($template) {
@@ -98,6 +99,14 @@ class CadernoForm extends Form
                             'attr' => [
                                 'multiple' => 'multiple',
                             ],
+                        ]
+                    );
+                } else if ($v['tipo'] == TipoTemplatePerguntaEnum::Data) {
+                    $this->add(
+                        $v['id'],
+                        'date',
+                        [
+                            'label' => $v['pergunta'],
                         ]
                     );
                 }

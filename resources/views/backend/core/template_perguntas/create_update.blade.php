@@ -30,11 +30,10 @@
             $("#tipo").change(function() {
                 $(".card-respostas").addClass('d-none');
 
-                if ($(this).val() != 'text') {
+                if (($(this).val() != 'text') && ($(this).val() != 'data')) {
                     $(".card-respostas").removeClass('d-none');
                 }
             }).change();
         });
     </script>
 @endpush
-
