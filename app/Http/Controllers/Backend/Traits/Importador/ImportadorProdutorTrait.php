@@ -126,6 +126,7 @@ trait ImportadorProdutorTrait
 
                         'created_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsProdutor, 'created_at')),
                         'updated_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsProdutor, 'created_at')),
+                        'user_id' => 1, # Solução provisória: atribuir id = 1 #10
                     ];
 
                     ProdutorModel::insert($dataProdutor);

@@ -113,6 +113,7 @@ trait ImportadorUnidadesProdutivas
 
                         'created_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsUnidadeProdutiva, 'created_at')),
                         'updated_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsUnidadeProdutiva, 'created_at')),
+                        'user_id' => 1, # Solução provisória: atribuir id = 1 #10
                     ];
 
                     $model = UnidadeProdutivaModel::insert($dataUnidadeProdutiva);
