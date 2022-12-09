@@ -51,6 +51,7 @@ class CadernoForm extends Form
          * Texto livre - Text
          * Uma escolha - Check
          * Multipla escolha - MultipleCheck
+         * Data - Date
          */
         $template = @$this->data['template'];
         if ($template) {
