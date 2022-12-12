@@ -6,7 +6,7 @@ Breadcrumbs::for('admin.auth.user.index', function ($trail) {
 
 Breadcrumbs::for('admin.auth.user.indexAll', function ($trail) {
     $trail->parent('admin.auth.user.index');
-    $trail->push('Todos Usuários', route('admin.auth.user.indexAll'));
+    $trail->push('Todos/as Usuários/as', route('admin.auth.user.indexAll'));
 });
 
 Breadcrumbs::for('admin.auth.user.deactivated', function ($trail) {
