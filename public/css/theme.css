@@ -58,6 +58,10 @@ body {
     margin: 1px;
 }
 
+.c-sidebar-nav-dropdown-items li {
+    background: #666;
+}
+
 .c-header-nav .c-avatar {
     width: 40px;
     height: 40px;

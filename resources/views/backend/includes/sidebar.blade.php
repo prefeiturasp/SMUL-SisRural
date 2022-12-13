@@ -60,7 +60,7 @@
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.core.produtor.index') }}">
                                 <i class="c-sidebar-nav-icon c-icon cil-columns"></i>
-                                Listar Produtor/a
+                                Listar Produtor/as
                             </a>
                          </li>
 
@@ -71,12 +71,12 @@
                             </a>
                          </li> --}}
 
-                         {{-- <li class="c-sidebar-nav-item">
+                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.core.produtor.create') }}">
                                 <i class="c-sidebar-nav-icon c-icon cil-plus"></i>
-                                Adicionar Produtor
+                                Adicionar Produtor/a
                             </a>
-                         </li> --}}
+                         </li>
                     </ul>
                 </li>
             @endcan
