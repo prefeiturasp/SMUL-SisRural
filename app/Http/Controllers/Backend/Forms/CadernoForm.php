@@ -109,6 +109,14 @@ class CadernoForm extends Form
                             'label' => $v['pergunta'],
                         ]
                     );
+                } else if ($v['tipo'] == TipoTemplatePerguntaEnum::Hora) {
+                    $this->add(
+                        $v['id'],
+                        'time',
+                        [
+                            'label' => $v['pergunta'],
+                        ]
+                    );
                 }
             }
         }
