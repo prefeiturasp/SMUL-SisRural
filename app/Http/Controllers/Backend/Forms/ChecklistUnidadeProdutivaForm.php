@@ -177,6 +177,17 @@ class ChecklistUnidadeProdutivaForm extends Form
                                 ]
                             ]
                         );
+                    }  else if ($tipo_pergunta == TipoPerguntaEnum::Data) {
+                        $this->add(
+                            $v['id'],
+                            'date',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                            ]
+                        );
                     } else if ($tipo_pergunta == TipoPerguntaEnum::MultiplaEscolha) {
                         $respostas = collect($v['respostas'])->pluck('descricao', 'id')->toArray();
 

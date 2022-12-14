@@ -27,4 +27,6 @@ final class TipoPerguntaEnum extends Enum implements LocalizedEnum
     const EscolhaSimplesPontuacaoCinza = 'escolha-simples-pontuacao-cinza'; //Não se aplica
 
     const Anexo = 'anexo';
+
+    const Data = 'data';
 }

@@ -41,6 +41,8 @@ return [
         TipoPerguntaEnum::EscolhaSimplesPontuacaoCinza => 'Escolha simples com pontuação - com \'não se aplica\' e/ou \'verde\'',
 
         TipoPerguntaEnum::Anexo => 'Anexo',
+
+        TipoPerguntaEnum::Data => 'Data',
     ],
 
     GeneroEnum::class => [
