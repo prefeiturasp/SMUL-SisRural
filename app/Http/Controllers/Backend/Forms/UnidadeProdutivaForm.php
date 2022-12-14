@@ -149,6 +149,7 @@ class UnidadeProdutivaForm extends Form
          * Bloco dos dados complementares
          */
         $this->add('card-comp-start', 'card-start', [
+            'id' => 'card-dados-complementares',
             'title' => 'Dados Complementares',
         ])->add('fl_certificacoes', 'select',
         [
