@@ -275,7 +275,7 @@ class ChecklistUnidadeProdutivaRepository extends BaseRepository
 
         foreach ($questions as $k => $v) {
             $tipo = $perguntasTipo[$k];
-            $isTexto = ($tipo == TipoPerguntaEnum::Anexo || $tipo == TipoPerguntaEnum::NumericaPontuacao  || $tipo == TipoPerguntaEnum::Numerica || $tipo == TipoPerguntaEnum::Texto || $tipo == TipoPerguntaEnum::Data || $perguntasTipo[$k] == TipoPerguntaEnum::Tabela);
+            $isTexto = ($tipo == TipoPerguntaEnum::Anexo || $tipo == TipoPerguntaEnum::NumericaPontuacao  || $tipo == TipoPerguntaEnum::Numerica || $tipo == TipoPerguntaEnum::Texto || $tipo == TipoPerguntaEnum::Data || $tipo == TipoPerguntaEnum::Hora || $perguntasTipo[$k] == TipoPerguntaEnum::Tabela);
 
             $template_resposta_id = $isTexto ? null : $v;
             $resposta = $isTexto ? $v : null;

@@ -29,4 +29,5 @@ final class TipoPerguntaEnum extends Enum implements LocalizedEnum
     const Anexo = 'anexo';
 
     const Data = 'data';
+    const Hora = 'hora';
 }

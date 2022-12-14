@@ -43,6 +43,7 @@ return [
         TipoPerguntaEnum::Anexo => 'Anexo',
 
         TipoPerguntaEnum::Data => 'Data',
+        TipoPerguntaEnum::Hora => 'Hora',
     ],
 
     GeneroEnum::class => [
