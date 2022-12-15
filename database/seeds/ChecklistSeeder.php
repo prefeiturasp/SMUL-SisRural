@@ -722,7 +722,7 @@ class ChecklistSeeder extends Seeder
               array(
                   'id' => 17,
                   'checklist_categoria_id' => 1,
-                  'pergunta_id' => 16,
+                  'pergunta_id' => 17,
                   'peso_pergunta' => NULL,
                   'fl_obrigatorio' => 0,
                   'fl_plano_acao' => 0,
@@ -736,7 +736,7 @@ class ChecklistSeeder extends Seeder
               array(
                   'id' => 18,
                   'checklist_categoria_id' => 1,
-                  'pergunta_id' => 16,
+                  'pergunta_id' => 18,
                   'peso_pergunta' => NULL,
                   'fl_obrigatorio' => 0,
                   'fl_plano_acao' => 0,
