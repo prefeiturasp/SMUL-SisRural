@@ -23,6 +23,7 @@ trait ImportadorChecklistUnidadeProdutivaTrait
         array("id" => "checklist_unidade_produtiva_id", "column" => null),
         array("id" => "pergunta_id", "column" => null),
         array("id" => "resposta_id", "column" => null),
+        array("id" => "resposta", "column" => null),
         array("id" => "created_at", "column" => null),
     );
 
@@ -119,7 +120,7 @@ trait ImportadorChecklistUnidadeProdutivaTrait
                         'checklist_unidade_produtiva_id' => $this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'checklist_unidade_produtiva_id'),
                         'pergunta_id' => $this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'pergunta_id'),
                         'resposta_id' => $this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'resposta_id'),
-                        // 'resposta' => $this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'resposta'),
+                        'resposta' => $this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'resposta'),
                         'created_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'created_at')),
                         'updated_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsChecklistsRespostas, 'created_at'))
                     ];
