@@ -10,6 +10,6 @@ final class TipoTemplatePerguntaEnum extends Enum implements LocalizedEnum
     const Text = 'text';
     const Check = 'check';
     const MultipleCheck = 'multiple_check';
-    const Data = 'data';
-    const Hora = 'hora';
+    const Data = 'date';
+    const Hora = 'time';
 }
