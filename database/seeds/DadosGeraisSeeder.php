@@ -41,14 +41,14 @@ class DadosGeraisSeeder extends Seeder
         ]);
 
         \App\Models\Core\RelacaoModel::insert([
-            ['nome' => 'Sócio', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Sócio/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Familiar', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Coproprietário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Coproprietário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Permanente', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Temporária', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Diarista', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Meeiro', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Outro', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Meeiro/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Outra', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 
         \App\Models\Core\InstalacaoTipoModel::insert([
@@ -107,14 +107,14 @@ class DadosGeraisSeeder extends Seeder
         ]);
 
         \App\Models\Core\TipoPosseModel::insert([
-            ['id' => 1, 'nome' => 'Arrendatário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 2, 'nome' => 'Assentado', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 3, 'nome' => 'Proprietário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 4, 'nome' => 'Comodatário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 5, 'nome' => 'Parceiro', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 6, 'nome' => 'Usufrutuário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 1, 'nome' => 'Arrendatário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 2, 'nome' => 'Assentado/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 3, 'nome' => 'Proprietário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 4, 'nome' => 'Comodatário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 5, 'nome' => 'Parceiro/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 6, 'nome' => 'Usufrutuário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 7, 'nome' => 'Outro', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 8, 'nome' => 'Funcionário', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 8, 'nome' => 'Funcionário/a', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 9, 'nome' => 'Sem informação', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 

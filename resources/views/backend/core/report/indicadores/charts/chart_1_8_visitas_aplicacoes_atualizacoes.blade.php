@@ -8,7 +8,7 @@
     </div>
 </div>
 
-@modal(['id'=>'modal_chart_1_8_visitas_aplicacoes_atualizacoes_produtores', 'title'=>'Produtores'])
+@modal(['id'=>'modal_chart_1_8_visitas_aplicacoes_atualizacoes_produtores', 'title'=>'Produtores/as'])
     @slot('body')
         <table class="table table-sm table-ater">
             <thead>

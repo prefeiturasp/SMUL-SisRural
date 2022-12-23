@@ -50,19 +50,19 @@ return [
             ],
 
             'users' => [
-                'active' => 'Usuários Ativos',
+                'active' => 'Usuários/as Ativos/as',
                 'all_permissions' => 'Todas as Permissões',
                 'change_password' => 'Alterar Senha',
                 'change_password_for' => 'Alterar senha para :user',
-                'create' => 'Criar Usuário',
-                'deactivated' => 'Usuários Desativados',
+                'create' => 'Criar Usuário/a',
+                'deactivated' => 'Usuários/as Desativados',
                 'deleted' => 'Usuários Excluídos',
-                'edit' => 'Editar Usuário',
-                'management' => 'Gerenciamento Usuários',
+                'edit' => 'Editar Usuário/a',
+                'management' => 'Gerenciamento Usuários/as',
                 'no_permissions' => 'Sem permissões',
                 'no_roles' => 'Sem papéis para definir.',
                 'permissions' => 'Permissões',
-                'user_actions' => 'Ações de Usuários',
+                'user_actions' => 'Ações de Usuários/as',
 
                 'table' => [
                     'confirmed' => 'Confirmado',

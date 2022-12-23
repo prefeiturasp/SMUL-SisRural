@@ -11,7 +11,7 @@ class ImportadorForm extends Form
 {
     public function buildForm()
     {
-        $this->add('card-start', 'card-start', ['title' => 'Importador Produtor vs Unidade Produtiva', 'titleTag' => 'h1']);
+        $this->add('card-start', 'card-start', ['title' => 'Importador Produtor/a vs Unidade Produtiva', 'titleTag' => 'h1']);
 
         $this->add('arquivo', 'file', ['label' => 'Arquivo', 'rules' => 'required|mimes:xlsx', 'help_block' => ['text' => 'Documento base: resources/xlsx/carga_produtor_unidade_produtiva.xlsx, se rodar duas vezes o mesmo importador, registros com o mesmo ID são ignorados (ELES NÃO SÃO ATUALIZADOS)']]);
 

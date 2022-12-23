@@ -155,7 +155,7 @@ class ProdutorForm extends Form
             'fl_agricultor_familiar',
             'select',
             [
-                'label' => 'É Agricultor Familiar?',
+                'label' => 'É Agricultor/a Familiar?',
                 'choices' => CheckboxEnum::toSelectArray()
             ]
         );

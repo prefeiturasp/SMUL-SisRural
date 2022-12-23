@@ -8,7 +8,7 @@
                     {{ html()->label('Tipo de Relatório')->for('report_type') }}
                     {{ html()->select('report_type',
                             [
-                                'unidade_produtiva_produtor' => 'Unidade Produtiva/Produtor',
+                                'unidade_produtiva_produtor' => 'Unidade Produtiva/Produtor/a',
                                 'unidade_produtiva_pessoa' => 'Unidade Produtiva - Pessoas',
                                 'unidade_produtiva_infra' => 'Unidade Produtiva - Infraestrutura',
                                 'unidade_produtiva_uso_solo' => 'Unidade Produtiva - Uso do Solo',

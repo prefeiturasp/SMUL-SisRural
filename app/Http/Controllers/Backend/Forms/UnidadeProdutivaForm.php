@@ -60,7 +60,7 @@ class UnidadeProdutivaForm extends Form
             $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
 
             $this->add('produtor', 'static', [
-                'label' => 'Produtores',
+                'label' => 'Produtores/as',
                 'tag' => 'b',
                 'value' => join(", ", $this->model->produtores->pluck('nome')->toArray())
             ]);

@@ -30,8 +30,8 @@ return [
         'app_admin_role'  => 'Administrator',
         'domain_role' => 'Dominio',
         'operational_unit_role' => 'Unidade Operacional',
-        'technician_role' => 'Tecnico',
-        'ext_technician_role' => 'Tecnico Externo',
+        'technician_role' => 'Técnico/a',
+        'ext_technician_role' => 'Técnico/a Externo/a',
 
         /*
          * Whether or not new users need to be approved by an administrator before logging in

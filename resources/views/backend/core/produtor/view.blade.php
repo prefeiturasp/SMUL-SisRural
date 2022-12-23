@@ -118,7 +118,7 @@
 
 
             <tr>
-                <th>É Agricultor Familiar?</th>
+                <th>É Agricultor/a Familiar?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_agricultor_familiar) }}</td>
             </tr>
             <tr>

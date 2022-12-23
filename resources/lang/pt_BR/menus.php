@@ -26,7 +26,7 @@ return [
             'users' => [
                 'all' => 'Todos/as os/as Usuários/as',
                 'change-password' => 'Alterar Senha',
-                'create' => 'Criar Usuário',
+                'create' => 'Criar Usuário/a',
                 'deactivated' => 'Usuários Desativados',
                 'deleted' => 'Usuários/as Excluídos/as',
                 'edit' => 'Editar Usuário/a',
