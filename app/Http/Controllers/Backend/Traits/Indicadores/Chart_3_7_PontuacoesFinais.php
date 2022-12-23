@@ -22,7 +22,12 @@ trait Chart_3_7_PontuacoesFinais
         $ret = $list->groupBy('checklist_id')
             ->map(function($v) {
                 return $v->map(function($vv) {
-                    $vv->pontuacao = str_replace("%", "", $vv->pontuacao)*1;
+                    if($vv->pontuacao){
+                      $vv->pontuacao = str_replace("%", "", $vv->pontuacao)*1;
+                    } else {
+                      $vv->pontuacao = 0;
+                    }
+
                     return $vv;
                 });
             })
