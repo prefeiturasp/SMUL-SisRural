@@ -28,7 +28,12 @@ trait Chart_1_9_PlanoAcoes_Acoes
 
         $individuais = $this->makeAcoes($dataIndividuais);
         $individuais['nome'] = 'Individuais';
-        $individuais['upas'] = $dataIndividuaisUpas['total'];
+        if($dataIndividuaisUpas){
+          $individuais['upas'] = $dataIndividuaisUpas['total'];
+        } else {
+          $individuais['upas'] = NULL;
+        }
+
 
         $dataFormularios = $this->getQueryChart_1_9_PlanoAcoes_Acoes_Formularios($request)
             ->select(\DB::raw('count(plano_acao_itens.status) as total_status, plano_acao_itens.status, plano_acao_prioridade, checklists.nome'))
