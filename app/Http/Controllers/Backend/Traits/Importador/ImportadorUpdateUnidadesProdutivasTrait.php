@@ -12,6 +12,7 @@ trait ImportadorUpdateUnidadesProdutivasTrait
         array("id" => "cep", "column" => null),
         array("id" => "endereco", "column" => null),
         array("id" => "bairro", "column" => null),
+        array("id" => "subprefeitura", "column" => null),
         array("id" => "municipio", "column" => null),
         array("id" => "estado", "column" => null),
         array("id" => "lat", "column" => null),

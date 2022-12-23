@@ -31,6 +31,10 @@
                     <td>{{$unidadeProdutiva->bairro}}</td>
                 </tr>
                 <tr>
+                    <th>Distrito</th>
+                    <td>{{$unidadeProdutiva->subprefeitura}}</td>
+                </tr>
+                <tr>
                     <th>Estado</th>
                     <td>{{$unidadeProdutiva->estado ? $unidadeProdutiva->estado->nome : ''}}</td>
                 </tr>
@@ -432,4 +436,3 @@
         }
     </script>
 @endpush
-
