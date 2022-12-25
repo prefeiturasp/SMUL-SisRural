@@ -267,4 +267,15 @@ class CadernoModel extends Model
 
         return $perguntas;
     }
+
+    /**
+     * Relação many to many com usuários (técnicos que participaram da visita em campo)
+     *
+     *
+     * @return mixed
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }

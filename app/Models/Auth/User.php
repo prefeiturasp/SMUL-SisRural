@@ -220,4 +220,9 @@ class User extends BaseUser
     {
         return $this->hasMany(ProdutorModel::class, 'user_id');
     }
+
+    public function caderno()
+    {
+        return $this->belongsToMany(CadernoModel::class)->withTimestamps();
+    }
 }
