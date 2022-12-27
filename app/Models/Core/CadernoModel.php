@@ -274,7 +274,7 @@ class CadernoModel extends Model
      *
      * @return mixed
      */
-    public function users()
+    public function tecnicas()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }

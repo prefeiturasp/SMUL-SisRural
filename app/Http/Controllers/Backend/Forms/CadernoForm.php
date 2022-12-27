@@ -38,7 +38,17 @@ class CadernoForm extends Form
             'label' => 'Unidade Produtiva',
             'tag' => 'b',
             'value' => $unidadeProdutiva['nome']
-        ])->add('card-end-1', 'card-end', []);
+        ])->add(
+            'tecnicas',
+            'select',
+            [
+                'label' => 'Técnicos/as',
+                'choices' => \App\Models\Auth\User::orderByRaw('first_name DESC')->pluck('first_name', 'id')->toArray(),
+                'attr' => [
+                    'multiple' => 'multiple',
+                ]
+            ]
+        )->add('card-end-1', 'card-end', []);
 
 
         /**
