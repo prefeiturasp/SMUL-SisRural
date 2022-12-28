@@ -74,7 +74,7 @@
                     {"data": "produtor.nome"},
                     {"data": "datatable_unidade_produtiva.nome"},
                     {"data": "status"},
-                    {"data": "usuario.first_name"},
+                    {"data": "tecnicas[].first_name"},
                     {"data": "created_at_formatted", "name": "created_at"},
                     {"data": 'created_at_formatted', "name":"created_at_formatted", visible:false},
                     {"data": "usuario.last_name", visible:false},

@@ -43,7 +43,7 @@ class CadernoForm extends Form
             'select',
             [
                 'label' => 'Técnicos/as',
-                'choices' => \App\Models\Auth\User::orderByRaw('first_name DESC')->pluck('first_name', 'id')->toArray(),
+                'choices' => \App\Models\Auth\User::whereHas('roles', function($q){$q->where('name','=',RolesEnum::Tecnico);})->pluck('first_name', 'id')->toArray(),
                 'attr' => [
                     'multiple' => 'multiple',
                 ]
