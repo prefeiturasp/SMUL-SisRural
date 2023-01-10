@@ -65,7 +65,7 @@ trait ImportadorChecklistUnidadeProdutivaTrait
                         'unidade_produtiva_id' => $this->getValueColumn($rowData, $this->columnsChecklists, 'unidade_produtiva_id'),
                         'produtor_id' => $this->getValueColumn($rowData, $this->columnsChecklists, 'produtor_id'),
                         'user_id' => $this->getValueColumn($rowData, $this->columnsChecklists, 'user_id'),
-                        'status' => ChecklistStatusEnum::Finalizado,
+                        'status' => ChecklistStatusEnum::Rascunho,
                         'created_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsChecklists, 'created_at')),
                         'updated_at' => $this->formatDateTimezoneCaderno($this->getValueColumn($rowData, $this->columnsChecklists, 'created_at'))
                     ];
