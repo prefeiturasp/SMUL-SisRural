@@ -16,7 +16,11 @@ class CreateCadernoUserTable extends Migration
         Schema::create('caderno_model_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('caderno_model_id');
-            $table->integer('user_id')->unsigned();
+            $table->foreign('caderno_model_id')->references('id')
+            ->on('cadernos')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')
+            ->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
