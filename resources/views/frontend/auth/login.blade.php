@@ -17,7 +17,7 @@
                     {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
                     <fieldset>
                         <h1 aria-label="SisRural" class="title">
-                            <img alt="Logotipo SisRural" src="/img/backend/logo-black.svg" />
+                            <img alt="Logotipo SisRural" src="/img/backend/3-Horta em Casa.jpg" />
                         </h1>
 
                         <legend class="subtitle mt-5">Faça seu Login</legend>
@@ -118,6 +118,7 @@
                         Mais&nbsp;&nbsp;</a>
 
                     <div class="font-weight-bold">Realização</div>
+                    <!--
                     <div class="logos-prefeitura mt-1">
                         <a aria-label="Link para o site da Cidade de São Paulo" href="http://www.capital.sp.gov.br/"
                             target="_blank">
@@ -133,8 +134,9 @@
                                 width="110" />
                         </a>
                     </div>
-
+                    -->
                     <div class="font-weight-bold mt-3">Parceria</div>
+                    <!--
                     <div class="logos-prefeitura mt-1">
                         <a aria-label="Link para o site do Governo de São Paulo"
                             href="https://www.agricultura.sp.gov.br/" target="_blank">
@@ -142,6 +144,7 @@
                                 src="/img/frontend/login/logo-governo-sp.png" width="158" />
                         </a>
                     </div>
+                  -->
                 </div>
             </div>
         </div>
