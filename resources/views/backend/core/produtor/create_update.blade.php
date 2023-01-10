@@ -10,7 +10,7 @@
             @slot('body')
                 <div class="row align-items-center">
                     <div class="col col-lg-10">
-                        <h4 class="mb-0 text-white2">Complete agora os dados do Produtor/a ou pule para próximo passo.</h4>
+                        <h4 class="mb-0 text-white2">Complete agora os dados do/a Produtor/a ou pule para próximo passo.</h4>
                     </div>
 
                     <div class="col col-lg-2 text-right">

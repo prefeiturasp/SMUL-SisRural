@@ -323,7 +323,7 @@ class UnidadeProdutivaController extends Controller
         if (@$produtor->id) {
             return redirect()->route('admin.core.produtor.dashboard', ['produtor' => $produtor])->withFlashSuccess('Unidade Produtiva alterado com sucesso!');
         } else {
-            return redirect()->route('admin.core.unidade_produtiva.index')->withFlashSuccess('Unidade Produtiva alterado com sucesso!');
+            return redirect()->route('admin.core.unidade_produtiva.index')->withFlashSuccess('Unidade Produtiva alterada com sucesso!');
         }
     }
 
