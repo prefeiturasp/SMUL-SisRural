@@ -25,17 +25,9 @@ class CadernoCampoSeeder extends Seeder
             ['id' => 1, 'pergunta' => 'Data da Visita', 'tipo' => 'date', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 2, 'pergunta' => 'Horário de Início', 'tipo' => 'time', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 3, 'pergunta' => 'Horário de Fim', 'tipo' => 'time', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 4, 'pergunta' => 'Técnico/a (s)', 'tipo' => 'multiple_check', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 5, 'pergunta' => 'Cultivos Existentes', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 6, 'pergunta' => 'Observações', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 7, 'pergunta' => 'Notas', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-        ]);
-
-        \App\Models\Core\TemplateRespostaModel::insert([
-            ['id' => 1, 'template_pergunta_id' => 4, 'descricao' => 'Alex', 'ordem' => '1', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 2, 'template_pergunta_id' => 4, 'descricao' => 'Andressa', 'ordem' => '2', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 3, 'template_pergunta_id' => 4, 'descricao' => 'Ricardo', 'ordem' => '3', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['id' => 4, 'template_pergunta_id' => 4, 'descricao' => 'Oziel', 'ordem' => '4', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 4, 'pergunta' => 'Cultivos Existentes', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 5, 'pergunta' => 'Observações', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 6, 'pergunta' => 'Notas', 'tipo' => 'text', 'tags' => '', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 
         \App\Models\Core\TemplatePerguntaTemplatesModel::insert([
@@ -45,7 +37,6 @@ class CadernoCampoSeeder extends Seeder
             ['template_pergunta_id' => 4, 'template_id' => 1, 'ordem' => '4', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['template_pergunta_id' => 5, 'template_id' => 1, 'ordem' => '5', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['template_pergunta_id' => 6, 'template_id' => 1, 'ordem' => '6', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['template_pergunta_id' => 7, 'template_id' => 1, 'ordem' => '7', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
     }
 }
