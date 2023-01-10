@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Forms;
 
 use App\Enums\CadernoStatusEnum;
 use App\Enums\TipoTemplatePerguntaEnum;
+use App\Enums\RolesEnum;
 use Kris\LaravelFormBuilder\Form;
 
 /**
@@ -38,7 +39,17 @@ class CadernoForm extends Form
             'label' => 'Unidade Produtiva',
             'tag' => 'b',
             'value' => $unidadeProdutiva['nome']
-        ])->add('card-end-1', 'card-end', []);
+        ])->add(
+            'tecnicas',
+            'select',
+            [
+                'label' => 'Técnicos/as',
+                'choices' => \App\Models\Auth\User::whereHas('roles', function($q){$q->where('name','=',RolesEnum::Tecnico);})->pluck('first_name', 'id')->toArray(),
+                'attr' => [
+                    'multiple' => 'multiple',
+                ]
+            ]
+        )->add('card-end-1', 'card-end', []);
 
 
         /**

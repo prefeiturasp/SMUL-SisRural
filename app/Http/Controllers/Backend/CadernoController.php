@@ -63,7 +63,7 @@ class CadernoController extends Controller
      */
     public function datatable(ProdutorModel $produtor)
     {
-        $model = CadernoModel::with(['template:id,nome', 'produtor:id,nome', 'datatable_unidade_produtiva:id,nome', 'usuario:id,first_name,last_name'])->select("cadernos.*");
+        $model = CadernoModel::with(['template:id,nome', 'produtor:id,nome', 'datatable_unidade_produtiva:id,nome', 'usuario:id,first_name,last_name', 'tecnicas:first_name'])->select("cadernos.*");
 
         $data = $produtor->id ? $model->where('produtor_id', $produtor->id) : $model;
 
@@ -222,7 +222,9 @@ class CadernoController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status', 'custom-redirect']);
+        $tecnicas = $request->only(['tecnicas']);
         $produtor = \App\Models\Core\ProdutorModel::where('id', $data['produtor_id'])->first();
         $unidadeProdutiva = \App\Models\Core\UnidadeProdutivaModel::where('id', $data['unidade_produtiva_id'])->first();
 
@@ -250,6 +252,9 @@ class CadernoController extends Controller
 
         $cadernoModel = $this->repository->create($data);
         $this->saveRespostas($request, $cadernoModel);
+
+        $tecnicas = $tecnicas['tecnicas'];
+        $cadernoModel->tecnicas()->sync($tecnicas);
 
         /*Custom Redirect*/
         $redirect = route('admin.core.produtor.dashboard', ['produtor' => $data['produtor_id']]);
@@ -350,6 +355,8 @@ class CadernoController extends Controller
     {
 
         $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status', 'custom-redirect']);
+        $tecnicas = $request->only(['tecnicas']);
+
         $produtor = \App\Models\Core\ProdutorModel::where('id', $data['produtor_id'])->first();
         $unidadeProdutiva = \App\Models\Core\UnidadeProdutivaModel::where('id', $data['unidade_produtiva_id'])->first();
 
@@ -370,6 +377,9 @@ class CadernoController extends Controller
 
         $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status']);
         $cadernoModel = $this->repository->update($caderno, $data);
+
+        $tecnicas = $tecnicas['tecnicas'];
+        $cadernoModel->tecnicas()->sync($tecnicas);
 
         //Faz um touch no caderno, para atualizar a data de atualização (mesmo que não tenha nenhuma informação alterada)
         $cadernoModel->touch();
