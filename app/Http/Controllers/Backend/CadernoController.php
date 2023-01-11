@@ -253,7 +253,11 @@ class CadernoController extends Controller
         $cadernoModel = $this->repository->create($data);
         $this->saveRespostas($request, $cadernoModel);
 
-        $tecnicas = $tecnicas['tecnicas'];
+        if( isset($tecnicas['tecnicas']) ){
+          $tecnicas = $tecnicas['tecnicas'];
+        } else {
+          $tecnicas = NULL;
+        }
         $cadernoModel->tecnicas()->sync($tecnicas);
 
         /*Custom Redirect*/
@@ -378,7 +382,11 @@ class CadernoController extends Controller
         $data = $request->only(['template_id', 'produtor_id', 'unidade_produtiva_id', 'status']);
         $cadernoModel = $this->repository->update($caderno, $data);
 
-        $tecnicas = $tecnicas['tecnicas'];
+        if( isset($tecnicas['tecnicas']) ){
+          $tecnicas = $tecnicas['tecnicas'];
+        } else {
+          $tecnicas = NULL;
+        }
         $cadernoModel->tecnicas()->sync($tecnicas);
 
         //Faz um touch no caderno, para atualizar a data de atualização (mesmo que não tenha nenhuma informação alterada)
