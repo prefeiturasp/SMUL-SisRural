@@ -221,6 +221,7 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-solo-outros-start', 'card-start', [
             'title' => 'Uso do Solo',
+            'id' => 'card-outros-usos',
         ])->add('solosCategoria', 'select', [
             'label' => 'Outros Usos',
             'choices' => SoloCategoriaModel::where('tipo', 'outros')->pluck('nome', 'id')->sortBy('nome')->toArray(),
@@ -240,8 +241,9 @@ class UnidadeProdutivaForm extends Form
         /**
          * Bloco - Processa Produção
          */
-        $this->add('card-processa-start', 'card-start', [
+        $this->add('card-processa-start', 'card-start', [            
             'title' => 'Processa Produção',
+            'id' => 'card-processamento',
         ])->add('fl_producao_processa', 'select', [
             'choices' => ProcessaProducaoEnum::toSelectArray(),
             'empty_value' => 'Selecione',
@@ -262,6 +264,7 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-comercializacao-start', 'card-start', [
             'title' => 'Comercialização',
+            'id' => 'card-comercializacao',
         ])->add(
             'fl_comercializacao',
             'select',
@@ -291,6 +294,7 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-agua-start', 'card-start', [
             'title' => 'Saneamento Rural',
+            'id' => 'card-saneamento',
         ])->add('outorga_id', 'select', [
             'label' => 'Possui Outorga?',
             'empty_value' => 'Selecione',
