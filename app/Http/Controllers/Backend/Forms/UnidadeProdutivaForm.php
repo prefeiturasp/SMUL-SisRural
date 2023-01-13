@@ -90,7 +90,7 @@ class UnidadeProdutivaForm extends Form
         ])->add('subprefeitura', 'select', [
             'label' => 'Distrito',
             'empty_value' => 'Selecione',
-            'choices' => ['Maricá', 'Ponta Negra', 'Inoã', 'Itaipuaçu'],
+            'choices' => ['Maricá' => 'Maricá', 'Ponta Negra' => 'Ponta Negra', 'Inoã' => 'Inoã', 'Itaipuaçu' => 'Itaipuaçu'],
         ])->add(
             'estado_id',
             'select',
