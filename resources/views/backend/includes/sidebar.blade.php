@@ -128,14 +128,14 @@
 
                     <a accesskey="c" class="c-sidebar-nav-dropdown-toggle {{ active_class(Route::is('admin.core.cadernos*'), 'c-active') }}" href="#">
                         <i class="c-sidebar-nav-icon c-icon cil-clipboard"></i>
-                        Cadernos de Campo
+                        {{ __('concepts.caderno_de_campo.plural') }}
                     </a>
 
                     <ul class="c-sidebar-nav-dropdown-items">
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.core.cadernos.index') }}">
                                 <i class="c-sidebar-nav-icon c-icon cil-columns"></i>
-                                Listar Cadernos de Campo
+                                {{ __('concepts.caderno_de_campo.list') }}
                             </a>
                         </li>
 
@@ -145,7 +145,7 @@
                                 active_class(Route::is('admin.core.cadernos.create'), 'c-active')
                             }}" href="{{ route('admin.core.cadernos.produtor_unidade_produtiva') }}">
                                 <i class="c-sidebar-nav-icon c-icon cil-plus"></i>
-                                Adicionar Caderno de Campo
+                                {{ __('concepts.caderno_de_campo.add') }}
                             </a>
                         </li>
                         @endcan

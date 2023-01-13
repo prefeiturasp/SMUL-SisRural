@@ -212,14 +212,14 @@ Breadcrumbs::for('admin.core.templates_caderno.perguntas.edit', function ($trail
  */
 
 Breadcrumbs::for('admin.core.cadernos.index', function ($trail) {
-    $trail->push('Caderno de Campo', route('admin.core.cadernos.index'));
+    $trail->push(__('concepts.caderno_de_campo.label'), route('admin.core.cadernos.index'));
 });
 Breadcrumbs::for('admin.core.cadernos.excluidos', function ($trail) {
-    $trail->push('Caderno de Campo', route('admin.core.cadernos.index'));
+    $trail->push(__('concepts.caderno_de_campo.label'), route('admin.core.cadernos.index'));
 });
 Breadcrumbs::for('admin.core.cadernos.create', function ($trail) {
     $trail->parent('admin.core.cadernos.index');
-    $trail->push('Criar Caderno de Campo');
+    $trail->push(__('concepts.caderno_de_campo.add'));
 });
 Breadcrumbs::for('admin.core.cadernos.edit', function ($trail, $id) {
     $trail->parent('admin.core.cadernos.index');

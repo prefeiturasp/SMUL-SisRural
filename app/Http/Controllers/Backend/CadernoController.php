@@ -101,7 +101,7 @@ class CadernoController extends Controller
      */
     public function view(CadernoModel $caderno)
     {
-        $title = 'Caderno de Campo';
+        $title = __('concepts.caderno_de_campo.label');
 
         $perguntas = $caderno->getPerguntasRespostas();
         $arquivos = $caderno->arquivos;
@@ -162,7 +162,7 @@ class CadernoController extends Controller
             'data' => ['template' => $template, 'produtor' => $produtor, 'unidadeProdutiva' => $unidadeProdutiva]
         ]);
 
-        $title = 'Aplicar Caderno de Campo';
+        $title = __('concepts.caderno_de_campo.apply');
 
         $back = AppHelper::prevUrl(route('admin.core.cadernos.index'));
         return view('backend.core.cadernos.create_update', compact('form', 'title', 'back'));
@@ -338,7 +338,7 @@ class CadernoController extends Controller
             'data' => ['template' => $template, 'produtor' => $caderno->produtor, 'unidadeProdutiva' => $caderno->unidadeProdutiva]
         ]);
 
-        $title = 'Editar caderno de campo';
+        $title = __('concepts.caderno_de_campo.edit');
 
         //Iframe dos arquivos vinculados ao caderno (ver CadernoArquivosTrait.php)
         $arquivosId = 'iframeArquivos';
@@ -513,7 +513,7 @@ class CadernoController extends Controller
     {
         $datatableUrl = route('admin.core.cadernos.datatableExcluidos');
 
-        $title = 'Cadernos Excluídos';
+        $title = __('concepts.caderno_de_campo.deleted');
 
         $showLinkExcluidos = false;
 
