@@ -35,12 +35,12 @@
                     <td>{{$unidadeProdutiva->subprefeitura}}</td>
                 </tr>
                 <tr>
-                    <th>Estado</th>
-                    <td>{{$unidadeProdutiva->estado ? $unidadeProdutiva->estado->nome : ''}}</td>
-                </tr>
-                <tr>
                     <th>Cidade</th>
                     <td>{{$unidadeProdutiva->cidade ? $unidadeProdutiva->cidade->nome : ''}}</td>
+                </tr>                
+                <tr>
+                    <th>Estado</th>
+                    <td>{{$unidadeProdutiva->estado ? $unidadeProdutiva->estado->nome : ''}}</td>
                 </tr>
                 <tr>
                     <th>Bacia Hidrográfica</th>

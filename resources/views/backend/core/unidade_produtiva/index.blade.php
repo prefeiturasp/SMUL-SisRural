@@ -30,10 +30,12 @@
                 <tr>
                     <th width="60">#</th>
                     <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
+                    <!--<th>Cidade</th>
+                    <th>Estado</th>-->
+                    <th>Distrito</th>
+                    <th>Bairro</th>
                     <th>Produtores/as</th>
-                    <th>Coproprietários/as</th>
+                    <!--<th>Coproprietários/as</th>-->
                     <th width="60">Ações</th>
                 </tr>
                 </thead>
@@ -57,10 +59,12 @@
                 "columns": [
                     {"data": "uid"},
                     {"data": "nome"},
-                    {"data": "cidade.nome"},
-                    {"data": "estado.nome"},
+                    // {"data": "cidade.nome"},
+                    // {"data": "estado.nome"},
+                    {"data": "subprefeitura"},
+                    {"data": "bairro"},
                     {"data": "produtores"},
-                    {"data": "socios"},
+                    // {"data": "socios"},
                     // {"data": "tags"},
                     {
                         "data": "actions",
