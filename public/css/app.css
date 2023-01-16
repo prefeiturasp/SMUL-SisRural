@@ -243,6 +243,6 @@ body .select2-container--bootstrap.select2-container--open .select2-selection {
     z-index: 1000;
 }
 
-#card-saneamento, #card-comercializacao, #iframeCaracterizacoes, #card-outros-usos, #card-processamento {
-    display: none;
-}
+/* #card-saneamento, #card-comercializacao, #iframeCaracterizacoes, #card-outros-usos, #card-processamento { */
+    /* display: none; */
+/* } */
