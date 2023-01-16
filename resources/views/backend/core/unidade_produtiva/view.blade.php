@@ -377,7 +377,11 @@
             <table class="table table-hover">
                 <tr>
                     <th width="20%">Croqui</th>
-                    <td>{{$unidadeProdutiva->croqui_propriedade}}</td>
+                    <td>
+                        <a aria-label="Ampliar Imagem" href="{{\Storage::url($unidadeProdutiva->croqui_propriedade)}}" target="_blank">
+                            <img alt="Croqui" src="{{\Storage::url($unidadeProdutiva->croqui_propriedade)}}" width="100"/>
+                        </a>
+                    </td>
                 </tr>
             </table>
 
