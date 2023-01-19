@@ -77,11 +77,11 @@ class UnidadeProdutivaForm extends Form
             'label' => 'Nome da Unidade Produtiva',
             'rules' => 'required',
             'error' => __('validation.required', ['attribute' => 'Nome da Unidade Produtiva'])
-        ])->add('cep', 'text', [
-            'label' => 'CEP (Código de Endereçamento Postal)',
-            'attr' => [
-                '_mask' => '99999-999',
-            ],
+        // ])->add('cep', 'text', [
+        //     'label' => 'CEP (Código de Endereçamento Postal)',            
+        //     'attr' => [
+        //         '_mask' => '99999-999',
+        //     ],
         ])->add('endereco', 'text', [
             'label' => 'Endereço',
             'rules' => 'required',
@@ -111,9 +111,10 @@ class UnidadeProdutivaForm extends Form
                 'rules' => 'required',
                 'error' => __('validation.required', ['attribute' => 'Município'])
             ]
-        )->add('bacia_hidrografica', 'text', [
-            'label' => 'Bacia Hidrográfica',
-        ])->add(
+        // )->add('bacia_hidrografica', 'text', [
+        //     'label' => 'Bacia Hidrográfica',
+        //     ]
+        )->add(
             'status',
             'select',
             [
@@ -354,6 +355,7 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-pressoes-sociais-start', 'card-start', [
             'title' => 'Pressões Sociais',
+            'id' => 'card-sente-pressoes-sociais',
         ])->add(
             'fl_pressao_social',
             'select',
