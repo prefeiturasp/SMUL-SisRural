@@ -147,10 +147,11 @@ class DadosGeraisSeeder extends Seeder
             ['nome' => 'Poço artesiano/semi-artesiano', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Nascente', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Córrego/rio', 'created_at' => $createdAt, 'updated_at' => $createdAt],
-            ['nome' => 'Empresa fornecedora de água (ex: SABESP)', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Empresa fornecedora de água (Concessionária)', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Lagoa natural', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Lagoa artificial, açude e/ou tanque', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['nome' => 'Cisterna com captação de água da chuva', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['nome' => 'Caminhão pipa', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
 
         \App\Models\Core\OutorgaModel::insert([
