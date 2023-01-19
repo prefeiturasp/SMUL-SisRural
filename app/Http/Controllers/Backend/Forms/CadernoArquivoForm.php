@@ -11,15 +11,17 @@ class CadernoArquivoForm extends Form
 {
     public function buildForm()
     {
+        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
+
         $this->add(
             'arquivo',
             'file',
             [
                 'label' => 'Arquivo',
-                'rules' => 'max:25600|mimes:doc,docx,pdf,xls,xlsx,png,jpg,jpeg,gif,txt,kml,shp',
-                "maxlength" => 25600,
+                'rules' => 'max:' . $upload_max_filesize . '|mimes:doc,docx,pdf,xls,xlsx,png,jpg,jpeg,gif,txt,kml,shp',
+                "maxlength" => $upload_max_filesize,
                 'help_block' => [
-                    'text' => 'Tamanho máximo do arquivo: 25mb',
+                    'text' => 'Tamanho máximo do arquivo: ' . ini_get('upload_max_filesize'),
                 ]
             ]
         )

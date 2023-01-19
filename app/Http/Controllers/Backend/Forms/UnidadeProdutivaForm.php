@@ -383,14 +383,17 @@ class UnidadeProdutivaForm extends Form
         /**
          * Bloco Croqui - Anexo
          */
+        
+        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
+
         $this->add('card-croqui-start', 'card-start', [
             'title' => 'Croqui da Propriedade',
         ])->add('croqui_propriedade', 'file', [
             'label' => 'Arquivo',
-            'rules' => 'max:25600|mimes:doc,docx,pdf,xls,xlsx,png,jpg,jpeg,gif,txt',
-            "maxlength" => 25600,
+            'rules' => 'max:' . $upload_max_filesize . '|mimes:doc,docx,pdf,xls,xlsx,png,jpg,jpeg,gif,txt',
+            "maxlength" => $upload_max_filesize,
             'help_block' => [
-                'text' => 'Tamanho máximo do arquivo: 25mb',
+                'text' => 'Tamanho máximo do arquivo: ' . ini_get('upload_max_filesize'),
             ]
         ])->add('card-croqui-end', 'card-end', []);
 

@@ -248,15 +248,16 @@ class ChecklistUnidadeProdutivaForm extends Form
                             ]
                         );
                     } else if ($tipo_pergunta == TipoPerguntaEnum::Anexo) {
+                        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
                         $this->add(
                             $v['id'],
                             'file',
                             [
                                 'label' => $labelPergunta,
-                                'rules' => 'max:25600|mimes:doc,docx,pdf,ppt,pptx,xls,xlsx,png,jpg,jpeg,gif,txt,kml,shp', //required|
-                                "maxlength" => 25600,
+                                'rules' => 'max:' . $upload_max_filesize . '|mimes:doc,docx,pdf,ppt,pptx,xls,xlsx,png,jpg,jpeg,gif,txt,kml,shp', //required|
+                                "maxlength" => $upload_max_filesize,
                                 'help_block' => [
-                                    'text' => $textoApoio . '<br>Tamanho máximo do arquivo: 25mb',
+                                    'text' => $textoApoio . '<br>Tamanho máximo do arquivo: ' . ini_get('upload_max_filesize'),
                                 ],
                             ]
                         );
