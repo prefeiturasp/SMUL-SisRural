@@ -30,3 +30,6 @@ coverage.xml
 .phpunit.result.cache
 /material
 /ater.code-workspace
+/resources/xlsx
+/resources/xlsx original/
+/scripts
