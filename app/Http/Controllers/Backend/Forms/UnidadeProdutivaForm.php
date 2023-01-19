@@ -264,7 +264,7 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-comercializacao-start', 'card-start', [
             'title' => 'Comercialização',
-            'id' => 'card-comercializacao',
+            'id' => 'card-realiza-comercializacao',
         ])->add(
             'fl_comercializacao',
             'select',
