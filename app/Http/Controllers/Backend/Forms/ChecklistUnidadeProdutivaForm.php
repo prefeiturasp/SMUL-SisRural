@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Forms;
 use App\Enums\ChecklistStatusEnum;
 use App\Enums\PlanoAcaoItemStatusEnum;
 use App\Enums\TipoPerguntaEnum;
+use App\Helpers\General\AppHelper;
 use Kris\LaravelFormBuilder\Form;
 
 /**
@@ -248,7 +249,7 @@ class ChecklistUnidadeProdutivaForm extends Form
                             ]
                         );
                     } else if ($tipo_pergunta == TipoPerguntaEnum::Anexo) {
-                        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
+                        $upload_max_filesize = AppHelper::return_bytes(ini_get('upload_max_filesize'));
                         $this->add(
                             $v['id'],
                             'file',

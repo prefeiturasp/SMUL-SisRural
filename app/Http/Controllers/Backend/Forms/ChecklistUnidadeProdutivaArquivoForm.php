@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Forms;
 
+use App\Helpers\General\AppHelper;
 use Kris\LaravelFormBuilder\Form;
 
 /**
@@ -11,7 +12,7 @@ class ChecklistUnidadeProdutivaArquivoForm extends Form
 {
     public function buildForm()
     {
-        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
+        $upload_max_filesize = AppHelper::return_bytes(ini_get('upload_max_filesize'));
 
         $this->add(
             'arquivo',

@@ -6,6 +6,7 @@ use App\Enums\CheckboxEnum;
 use App\Enums\ProcessaProducaoEnum;
 use App\Enums\ProdutorUnidadeProdutivaStatusEnum;
 use App\Enums\UnidadeProdutivaCarEnum;
+use App\Helpers\General\AppHelper;
 use App\Models\Core\CanalComercializacaoModel;
 use App\Models\Core\CertificacaoModel;
 use App\Models\Core\EsgotamentoSanitarioModel;
@@ -209,8 +210,12 @@ class UnidadeProdutivaForm extends Form
          */
         $this->add('card-solo-start', 'card-start', [
             'title' => 'Uso do Solo',
-        ])->add('area_total_solo', 'text', [
+        ])->add('area_total_solo', 'number', [
             'label' => 'Área total da propriedade',
+        ])->add('area_produtiva', 'number', [
+            'label' => 'Área produtiva',            
+        ])->add('observacoes_sobre_area', 'text', [
+            'label' => 'Observações sobre a área',                        
         ])->add('card-solo-end', 'card-end', []);
 
         /**
@@ -396,7 +401,7 @@ class UnidadeProdutivaForm extends Form
          * Bloco Croqui - Anexo
          */
         
-        $upload_max_filesize = return_bytes(ini_get('upload_max_filesize'));
+        $upload_max_filesize = AppHelper::return_bytes(ini_get('upload_max_filesize'));
 
         $this->add('card-croqui-start', 'card-start', [
             'title' => 'Croqui da Propriedade',
