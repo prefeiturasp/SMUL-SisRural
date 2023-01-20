@@ -17,6 +17,7 @@ use Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Uuid;
+use Wildside\Userstamps\Userstamps;
 
 /**
  * Referente a aplicação de um Template de formulário em uma Unidade Produtiva
@@ -29,6 +30,7 @@ class ChecklistUnidadeProdutivaModel extends Model
     use DateFormat;
     use RolesAppAttribute;
     use ImportFillableCreatedAt;
+    use Userstamps;
 
     /**
      * Trait com as funções de score/pontuação do Formulário aplicado

@@ -14,6 +14,7 @@ use App\Models\Core\Traits\ImportFillableCreatedAt;
 use App\Models\Traits\DateFormat;
 use Carbon\Carbon;
 use Uuid;
+use Wildside\Userstamps\Userstamps;
 
 /**
  * Base da estrutura do Caderno de Campo
@@ -24,6 +25,7 @@ class CadernoModel extends Model
     use DateFormat;
     use RolesAppAttribute;
     use ImportFillableCreatedAt;
+    use Userstamps;
 
     public $incrementing = false;
 

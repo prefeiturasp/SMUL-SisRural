@@ -9,6 +9,7 @@ use App\Models\Traits\DateFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Uuid;
+use Wildside\Userstamps\Userstamps;
 
 /**
  * Uma das entidades bases do sistema, Unidade Produtiva
@@ -20,6 +21,7 @@ class UnidadeProdutivaModel extends Model
     use SoftDeletes;
     use DateFormat;
     use ImportFillableCreatedAt;
+    use Userstamps;
 
     public $incrementing = false;
 

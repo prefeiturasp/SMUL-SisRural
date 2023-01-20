@@ -12,12 +12,14 @@ use App\Models\Traits\DateFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Uuid;
+use Wildside\Userstamps\Userstamps;
 
 class PlanoAcaoModel extends Model
 {
     use SoftDeletes;
     use DateFormat;
     use RolesAppAttribute;
+    use Userstamps;
 
     public $incrementing = false;
 

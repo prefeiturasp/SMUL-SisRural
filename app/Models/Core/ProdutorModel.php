@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Uuid;
+use Wildside\Userstamps\Userstamps;
 
 /**
  * Uma das entidades bases do projeto.
@@ -22,6 +23,7 @@ class ProdutorModel extends Model
     use SoftDeletes;
     use DateFormat;
     use ImportFillableCreatedAt;
+    use Userstamps;    
 
     public $incrementing = false;
 
