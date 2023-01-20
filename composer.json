@@ -38,6 +38,7 @@
         "torann/geoip": "^1.0",
         "verumconsilium/laravel-browsershot": "^1.1",
         "webpatser/laravel-uuid": "^3.0",
+        "wildside/userstamps": "^2.2",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
