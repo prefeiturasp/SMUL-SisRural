@@ -18,10 +18,10 @@
                     <th width="20%">Nome da Unidade Produtiva</th>
                     <td>{{$unidadeProdutiva->nome}}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <th><abbr title="Código de Endereçamento Postal">CEP</abbr></th>
                     <td>{{$unidadeProdutiva->cep}}</td>
-                </tr>
+                </tr>-->
                 <tr>
                     <th>Endereço</th>
                     <td>{{$unidadeProdutiva->endereco}}</td>
@@ -42,10 +42,10 @@
                     <th>Estado</th>
                     <td>{{$unidadeProdutiva->estado ? $unidadeProdutiva->estado->nome : ''}}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <th>Bacia Hidrográfica</th>
                     <td>{{$unidadeProdutiva->bacia_hidrografica}}</td>
-                </tr>
+                </tr>-->
                 <tr>
                     <th>Status</th>
                     <td>{{$unidadeProdutiva->status}}</td>
@@ -90,7 +90,7 @@
         @endslot
     @endcardater
 
-    @cardater(['title'=>'Dados Complementares'])
+    @cardater(['title'=>'Dados Complementares', 'id'=>'card-dados-complementares'])
         @slot('body')
             <table class="table table-hover">
                 <tr>
@@ -357,7 +357,7 @@
         @endcardater
     @endif
 
-    @cardater(['title'=>'Pressões Sociais'])
+    @cardater(['title'=>'Pressões Sociais', 'id' => 'card-sente-pressoes-sociais'])
         @slot('body')
             <table class="table table-hover">
                 <tr>
