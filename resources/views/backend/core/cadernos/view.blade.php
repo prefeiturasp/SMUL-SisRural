@@ -36,7 +36,14 @@
 
                 <tr>
                     <th>Técnico/a</th>
-                    <td>{{$caderno->usuario->full_name}}</td>
+                    <td>
+                    @php
+                        foreach($caderno->tecnicas as $tecnica){
+                            $tecnicas_str[] = $tecnica->first_name;
+                        }
+                        echo implode(", ", $tecnicas_str);
+                    @endphp
+                    </td>
                 </tr>
 
                 <tr>
