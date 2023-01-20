@@ -145,8 +145,18 @@
                 <th>Periodicidade da Assistência Técnica</th>
                 <td>{{ $produtor->assistencia_tecnica_periodo }}</td>
             </tr>
-
-
+            <tr>
+                <th>Contrata mão-de-obra externa?</th>
+                <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_contrata_mao_de_obra_externa) }}</td>
+            </tr>
+            <tr>
+                <th>Para qual o tipo de trabalho contrata mão-de-obra externa?</th>
+                <td>{{ $produtor->mao_de_obra_externa_tipo }}</td>
+            </tr>
+            <tr>
+                <th>Periodicidade da contratação de mão-de-obra externa</th>
+                <td>{{ $produtor->mao_de_obra_externa_periodicidade }}</td>
+            </tr>
             <tr>
                 <th>É da Comunidade Tradicional?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_comunidade_tradicional) }}</td>

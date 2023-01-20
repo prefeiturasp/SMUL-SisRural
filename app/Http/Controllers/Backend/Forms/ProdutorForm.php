@@ -195,39 +195,70 @@ class ProdutorForm extends Form
             [
                 'label' => 'Recebe Assistência Técnica?',
                 'choices' => CheckboxEnum::toSelectArray(),
-                'wrapper' => [                    
+                'wrapper' => [
                     'id' => 'bloco-assistencia-tecnica'
-                ],                
+                ],
             ]
         )->add('card-assistencia-tecnica-start', 'fieldset-start', [
-            'id' => 'card-assistencia-tecnica',
-            'title' => 'Assistência Técnica'
-        ])->add(
-            'assistencia_tecnica_tipo_id',
+                'id' => 'card-assistencia-tecnica',
+                'title' => 'Assistência Técnica'
+            ])->add(
+                'assistencia_tecnica_tipo_id',
+                'select',
+                [
+                    'label' => 'Qual o Tipo da Assistência Técnica',
+                    'empty_value' => 'Selecione',
+                    'choices' => \App\Models\Core\AssistenciaTecnicaTipoModel::pluck('nome', 'id')->sortBy('nome')->toArray(),
+                ]
+            )->add(
+                'assistencia_tecnica_periodo',
+                'text',
+                [
+                    'label' => 'Periodicidade da Assistência Técnica',
+                ]
+        )->add('card-assistencia-tecnica-end', 'fieldset-end', []);
+
+        /**
+         * Bloco Contratação de Mão de Obra Externa
+         */
+        $this->add(
+            'fl_contrata_mao_de_obra_externa',
             'select',
             [
-                'label' => 'Qual o Tipo da Assistência Técnica',
-                'empty_value' => 'Selecione',
-                'choices' => \App\Models\Core\AssistenciaTecnicaTipoModel::pluck('nome', 'id')->sortBy('nome')->toArray(),
+                'label' => 'Contrata mão-de-obra externa?',
+                'choices' => CheckboxEnum::toSelectArray(),
+                'wrapper' => [
+                    'id' => 'bloco-mao-de-obra-externa'
+                ],
             ]
-        )->add(
-            'assistencia_tecnica_periodo',
-            'text',
-            [
-                'label' => 'Periodicidade da Assistência Técnica',
-            ]
-        )->add('card-assistencia-tecnica-end', 'fieldset-end', [])->add(
+        )->add('card-mao-de-obra-externa-start', 'fieldset-start', [
+                'id' => 'card-mao-de-obra-externa',
+                'title' => 'Mão-de-obra externa'
+            ])->add(
+                'mao_de_obra_externa_tipo',
+                'text',
+                [
+                    'label' => 'Para qual o tipo de trabalho contrata mão-de-obra externa?',
+                ]
+            )->add(
+                'mao_de_obra_externa_periodicidade',
+                'text',
+                [
+                    'label' => 'Periodicidade da contratação de mão-de-obra externa',
+                ]
+        )->add('card-mao-de-obra-externa-end', 'fieldset-end', []);        
+
+        /**
+         * Bloco Comunidade Tradicional
+         */
+        $this->add(
             'fl_comunidade_tradicional',
             'select',
             [
                 'label' => 'É de Comunidade Tradicional?',
                 'choices' => CheckboxEnum::toSelectArray()
             ]
-        );
-
-        /**
-         * Bloco Comunidade Tradicional
-         */
+        );         
         $this->add('card-comunidade-tradicional-start', 'fieldset-start', [
             'id' => 'card-comunidade-tradicional',
             'title' => 'Comunidade Tradicional'

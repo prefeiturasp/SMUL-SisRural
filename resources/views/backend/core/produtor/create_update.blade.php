@@ -65,6 +65,7 @@
         $(function () {
             selectAutoYesNo("#fl_agricultor_familiar", '#card-agricultor-familiar');
             selectAutoYesNo("#fl_assistencia_tecnica", '#card-assistencia-tecnica');
+            selectAutoYesNo("#fl_contrata_mao_de_obra_externa", '#card-mao-de-obra-externa');
             selectAutoYesNo("#fl_portador_deficiencia", '#card-portador-deficiencia');
 
             selectAutoYesNo("#fl_agricultor_familiar_dap", '.card-agricultor-familiar-dap');
