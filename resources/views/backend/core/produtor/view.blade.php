@@ -201,13 +201,18 @@
                 <td>{{ $produtor->bairro }}</td>
             </tr>
             <tr>
-                <th>Estado</th>
-                <td>{{ $produtor->estado ? $produtor->estado->nome : '' }}</td>
-            </tr>
+                <th>Distrito</th>
+                <td>{{ $produtor->subprefeitura }}</td>
+            </tr>            
             <tr>
                 <th>Município</th>
                 <td>{{ $produtor->cidade ? $produtor->cidade->nome : '' }}</td>
+            </tr>            
+            <tr>
+                <th>Estado</th>
+                <td>{{ $produtor->estado ? $produtor->estado->nome : '' }}</td>
             </tr>
+
         </table>
     @endslot
     @endcardater

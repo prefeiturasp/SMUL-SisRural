@@ -314,7 +314,20 @@ class ProdutorForm extends Form
             'label' => 'Endereço',
         ])->add('bairro', 'text', [
             'label' => 'Bairro',
+        ])->add('subprefeitura', 'text', [
+            'label' => 'Distrito',            
         ])->add('card-endereco-end', 'fieldset-end', [])
+            ->add(
+                'cidade_id',
+                'select',
+                [
+                    'label' => 'Município',
+                    'empty_value' => 'Selecione',
+                    'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
+                    'rules' => 'required',
+                    'error' => __('validation.required', ['attribute' => 'Município'])
+                ]
+            )            
             ->add(
                 'estado_id',
                 'select',
@@ -325,16 +338,7 @@ class ProdutorForm extends Form
                     'rules' => 'required',
                     'error' => __('validation.required', ['attribute' => 'Estado'])
                 ]
-            )->add(
-                'cidade_id',
-                'select',
-                [
-                    'label' => 'Município',
-                    'empty_value' => 'Selecione',
-                    'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
-                    'rules' => 'required',
-                    'error' => __('validation.required', ['attribute' => 'Município'])
-                ]
+
             )
             ->add('card-dados-end', 'card-end', []);
 
