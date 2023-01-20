@@ -176,7 +176,7 @@ class ProdutorForm extends Form
         )->add('agricultor_familiar_numero', 'text', [
             'label' => 'Número DAP',
             'wrapper' => [
-                'class' => 'form-group row card-agricultor-familiar-dap'
+                'class' => 'form-group row card-agricultor-familiar-dap',                
             ],
         ])->add('agricultor_familiar_data', 'date', [
             'label' => 'Validade DAP',
@@ -194,7 +194,10 @@ class ProdutorForm extends Form
             'select',
             [
                 'label' => 'Recebe Assistência Técnica?',
-                'choices' => CheckboxEnum::toSelectArray()
+                'choices' => CheckboxEnum::toSelectArray(),
+                'wrapper' => [                    
+                    'id' => 'bloco-assistencia-tecnica'
+                ],                
             ]
         )->add('card-assistencia-tecnica-start', 'fieldset-start', [
             'id' => 'card-assistencia-tecnica',
