@@ -307,6 +307,16 @@ class UnidadeProdutivaForm extends Form
             'attr' => [
                 'multiple' => 'multiple',
             ],
+        ])->add('agua_qualidade', 'text', [
+            'label' => 'Qualidade da água',
+            'attr' => [
+                'placeholder' => 'Observações sobre a qualidade da água'
+            ]            
+        ])->add('agua_disponibilidade', 'text', [
+            'label' => 'Disponibilidade de água',
+            'attr' => [
+                'placeholder' => 'Observações sobre a disponibilidade de água'
+            ]                
         ])->add('fl_risco_contaminacao', 'select',
         [
             'label' => 'Há Risco de Contaminação?',
