@@ -230,6 +230,14 @@
                     <td>{{join(", ", $unidadeProdutiva->tiposFonteAgua->pluck('nome')->toArray())}}</td>
                 </tr>
                 <tr>
+                    <th>Qualidade da água</th>
+                    <td>{{ $unidadeProdutiva->agua_qualidade }}</td>
+                </tr>                
+                <tr>
+                    <th>Disponibilidade de água</th>
+                    <td>{{ $unidadeProdutiva->agua_disponibilidade }}</td>
+                </tr>                                
+                <tr>
                     <th>Há Risco de Contaminação?</th>
                     <td>{{boolean_sim_nao_sem_resposta($unidadeProdutiva->fl_risco_contaminacao)}}</td>
                 </tr>
