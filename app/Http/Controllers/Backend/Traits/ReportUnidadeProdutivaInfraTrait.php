@@ -63,7 +63,7 @@ trait ReportUnidadeProdutivaInfraTrait
                     'Tipo',
                     'Descrição',
                     'Quantidade',
-                    'Área (Hectares)',
+                    'Área ('.env('UNIDADE_MEDIDA_AREA_SIGLA').')',
                     'Observação',
                     'Localização',
                 ],

@@ -64,7 +64,7 @@ trait ReportUnidadeProdutivaUsoSoloTrait
                     'ID',
                     'ID da Unidade Produtiva',
                     'Categoria',
-                    'Área (hectares)',
+                    'Área ('.env('UNIDADE_MEDIDA_AREA_SIGLA').')',
                     'Número de espécies',
                     'Descrição',
                     'Agrobiodiversidade',
@@ -77,7 +77,7 @@ trait ReportUnidadeProdutivaUsoSoloTrait
                                 $v->uid, //id,  //  'ID',
                                 $this->privateData($v->unidadeProdutiva->uid), //$v->unidade_produtiva_id,  // 'ID DA UNIDADE PRODUTIVA',
                                 $v->solo_categoria_id ? $v->categoria->nome : null, //'Categoria'
-                                $v->area, //'Área (hectares)',
+                                $v->area, //'Área (unidade de medida de área)',
                                 $v->quantidade, //'Número de espécies',
                                 $v->descricao, //'Descrição',
                                 $v->solo_categoria_id ? $v->categoria->agrobiodiversidade($v->quantidade) : null, //'Agrobiodiversidade',

@@ -153,11 +153,11 @@
         @slot('body')
             <table class="table table-hover">
                 <tr>
-                    <th width="20%">Área total da propriedade</th>
+                    <th width="20%">Área total da propriedade ({{env('UNIDADE_MEDIDA_AREA_SIGLA')}})</th>
                     <td>{{$unidadeProdutiva->area_total_solo}}</td>
                 </tr>
                 <tr>
-                    <th width="20%">Área produtiva</th>
+                    <th width="20%">Área produtiva ({{env('UNIDADE_MEDIDA_AREA_SIGLA')}})</th>
                     <td>{{$unidadeProdutiva->area_produtiva}}</td>
                 </tr>
                 <tr>
@@ -188,7 +188,7 @@
                         <table class="table table-hover">
                             @if ($v->area)
                                 <tr>
-                                    <th width="20%">Área (Hectares)</th>
+                                    <th width="20%">Área ({{env('UNIDADE_MEDIDA_AREA_SIGLA')}})</th>
                                     <td>{{$v->area}}</td>
                                 </tr>
                             @endif
@@ -353,7 +353,7 @@
                                 @endif
                                 @if ($v->area)
                                     <tr>
-                                        <th>Área (Hectares)</th>
+                                        <th>Área ({{env('UNIDADE_MEDIDA_AREA_SIGLA')}})</th>
                                         <td>{{$v->area}}</td>
                                     </tr>
                                 @endif

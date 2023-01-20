@@ -39,7 +39,7 @@ class InstalacoesForm extends Form
             ]
         ])->add('area', 'number', [
             'wrapper' => ['class' => 'form-group row card-area'],
-            'label' => 'Área (Hectares)',
+            'label' => 'Área (' . env('UNIDADE_MEDIDA_AREA_SIGLA') . ')',
             'attr' => [
                 'step' => 'any'
             ]
