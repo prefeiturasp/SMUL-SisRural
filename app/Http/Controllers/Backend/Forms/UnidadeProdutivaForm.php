@@ -146,6 +146,14 @@ class UnidadeProdutivaForm extends Form
             'error' => __('validation.required', ['attribute' => 'Longitude']),
         ])->add('card-coordenadas-end', 'card-end', []);
 
+        /**
+         * Bloco Histórico
+         */
+        $this->add('card-historico-start', 'card-start', [
+            'title' => 'Histórico da unidade produtiva',       
+        ])->add('historico', 'textarea', [
+            'label' => 'Histórico da unidade produtiva',                        
+        ])->add('card-historico-end', 'card-end', []);        
 
         /**
          * Bloco dos dados complementares
