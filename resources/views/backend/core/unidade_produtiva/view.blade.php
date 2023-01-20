@@ -90,6 +90,18 @@
         @endslot
     @endcardater
 
+    @cardater(['title'=>'Histórico'])
+        @slot('body')
+            <table class="table table-hover">
+                <tr>
+                    <th width="20%">Histórico da unidade produtiva</th>
+                    <td>{{$unidadeProdutiva->historico}}</td>
+                </tr>
+
+            </table>
+        @endslot
+    @endcardater
+
     @cardater(['title'=>'Dados Complementares', 'id'=>'card-dados-complementares'])
         @slot('body')
             <table class="table table-hover">
