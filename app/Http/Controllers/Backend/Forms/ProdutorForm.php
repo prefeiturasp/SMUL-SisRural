@@ -350,8 +350,7 @@ class ProdutorForm extends Form
             'label' => 'Bairro',
         ])->add('subprefeitura', 'text', [
             'label' => 'Distrito',            
-        ])->add('card-endereco-end', 'fieldset-end', [])
-            ->add(
+        ])->add(
                 'cidade_id',
                 'select',
                 [
@@ -360,9 +359,7 @@ class ProdutorForm extends Form
                     'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
                     'rules' => 'required',
                     'error' => __('validation.required', ['attribute' => 'Município'])
-                ]
-            )            
-            ->add(
+        ])->add(
                 'estado_id',
                 'select',
                 [
@@ -371,10 +368,9 @@ class ProdutorForm extends Form
                     'choices' => \App\Models\Core\EstadoModel::orderByRaw('FIELD(uf, "SP") DESC, nome')->pluck('nome', 'id')->toArray(),
                     'rules' => 'required',
                     'error' => __('validation.required', ['attribute' => 'Estado'])
-                ]
+        ])->add('card-dados-end', 'card-end', [
 
-            )
-            ->add('card-dados-end', 'card-end', []);
+        ])->add('card-endereco-end', 'fieldset-end', []);
 
         $this->add('custom-redirect', 'hidden');
     }

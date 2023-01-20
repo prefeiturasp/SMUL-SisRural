@@ -75,8 +75,7 @@
             selectAutoYesNo("#fl_cnpj", '#card-cnpj');
             selectAutoYesNo("#fl_nota_fiscal_produtor", '#card-nota-fiscal-produtor');
 
-
-            selectAutoYesNoNone("#fl_reside_unidade_produtiva", '#card-endereco');
+            selectAutoYesNo("#fl_reside_unidade_produtiva", '#card-endereco');
         });
     </script>
 @endpush
