@@ -78,6 +78,29 @@ function selectAutoYesNo(idSelect, idCard) {
         .change();
 }
 
+/**
+ * select / show/hidden / value == 0 (show), value == 1 (hide)
+ */
+function selectAutoNoYes(idSelect, idCard) {
+    $(idSelect)
+        .change(function() {
+            if ($(this).attr("type") == "checkbox") {
+                if ($(this).prop("checked")) {
+                    $(idCard).addClass("d-none");
+                } else {
+                    $(idCard).removeClass("d-none");
+                }
+            } else {
+                if ($(this).val() == 0) {
+                    $(idCard).removeClass("d-none");
+                } else {
+                    $(idCard).addClass("d-none");
+                }
+            }
+        })
+        .change();
+}
+
 function selectAutoYesNoNone(idSelect, idCard) {
     $(idSelect)
         .change(function() {
