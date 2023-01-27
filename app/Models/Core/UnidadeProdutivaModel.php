@@ -27,7 +27,7 @@ class UnidadeProdutivaModel extends Model
 
     protected $table = 'unidade_produtivas';
 
-    protected $fillable = ['id', 'nome', 'cep', 'endereco', 'bairro', 'subprefeitura', 'cidade_id', 'estado_id', 'car', 'ccir', 'itr', 'matricula', 'upa', 'gargalos', 'outorga_id', 'agua_qualidade', 'agua_disponibilidade', 'fl_risco_contaminacao', 'risco_contaminacao_observacoes', 'irrigacao', 'irrigacao_area_coberta', 'instalacao_maquinas_observacao', 'croqui_propriedade', 'fl_certificacoes', 'fl_car', 'fl_ccir', 'fl_itr', 'fl_matricula', 'fl_comercializacao', 'outros_usos_descricao', 'fl_producao_processa', 'producao_processa_descricao', 'area_total_solo', 'area_produtiva', 'observacoes_sobre_area', 'lat', 'lng', 'certificacoes_descricao', 'pressao_social_descricao', 'fl_pressao_social', 'owner_id', 'fl_fora_da_abrangencia_app', 'bacia_hidrografica', 'status', 'status_observacao', 'user_id', 'tags', 'historico'];
+    protected $fillable = ['id', 'nome', 'cep', 'endereco', 'bairro', 'subprefeitura', 'cidade_id', 'estado_id', 'car', 'ccir', 'itr', 'matricula', 'upa', 'gargalos', 'outorga_id', 'agua_qualidade', 'agua_disponibilidade', 'fl_risco_contaminacao', 'risco_contaminacao_observacoes', 'irrigacao', 'irrigacao_area_coberta', 'instalacao_maquinas_observacao', 'croqui_propriedade', 'fl_certificacoes', 'fl_car', 'fl_ccir', 'fl_itr', 'fl_matricula', 'fl_comercializacao', 'outros_usos_descricao', 'fl_producao_processa', 'producao_processa_descricao', 'area_total_solo', 'area_produtiva', 'observacoes_sobre_area', 'lat', 'lng', 'certificacoes_descricao', 'pressao_social_descricao', 'fl_pressao_social', 'owner_id', 'fl_fora_da_abrangencia_app', 'bacia_hidrografica', 'status', 'status_observacao', 'user_id', 'tags', 'historico', 'status_acompanhamento_id'];
 
     protected $keyType = 'string';
 
@@ -443,5 +443,10 @@ class UnidadeProdutivaModel extends Model
     public function cadernos()
     {
         return $this->hasMany(CadernoModel::class, 'unidade_produtiva_id');
+    }
+
+    public function status_acompanhamento()
+    {
+        return $this->belongsTo(StatusAcompanhamentoModel::class, 'status_acompanhamento_id');
     }
 }

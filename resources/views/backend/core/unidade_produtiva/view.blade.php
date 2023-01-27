@@ -54,6 +54,10 @@
                     <th>Status - Observação</th>
                     <td>{{$unidadeProdutiva->status_observacao}}</td>
                 </tr>
+                <tr>
+                    <th>Status do Acompanhamento</th>
+                    <td>{{$unidadeProdutiva->status_acompanhamento->nome}}</td>
+                </tr>                
 
                 <tr>
                     <th>Criado por</th>

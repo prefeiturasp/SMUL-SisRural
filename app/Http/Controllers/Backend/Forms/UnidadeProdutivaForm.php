@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Forms;
 
+use App\Models\Core\StatusAcompanhamentoModel;
 use App\Enums\CheckboxEnum;
 use App\Enums\ProcessaProducaoEnum;
 use App\Enums\ProdutorUnidadeProdutivaStatusEnum;
@@ -127,7 +128,18 @@ class UnidadeProdutivaForm extends Form
             ]
         )->add('status_observacao', 'text', [
             'label' => 'Status - Observação',
-        ])->add('card-dados-end', 'card-end');
+            ]
+        )->add(
+            'status_acompanhamento_id',
+            'select',
+            [
+                'label' => 'Status do Acompanhamento',
+                'choices' => StatusAcompanhamentoModel::pluck('nome', 'id')->sortBy('nome')->toArray(),
+                'empty_value' => 'Selecione',
+                'rules' => 'required',
+                'error' => __('validation.required', ['attribute' => 'Status']),
+            ]        
+        )->add('card-dados-end', 'card-end');
 
 
         /**

@@ -221,5 +221,20 @@ class DadosGeraisSeeder extends Seeder
             ['id' => 6, 'nome' => 'Enterra o lixo', 'created_at' => $createdAt, 'updated_at' => $createdAt],
             ['id' => 7, 'nome' => 'Descarta o lixo nos rios', 'created_at' => $createdAt, 'updated_at' => $createdAt],
         ]);
+
+        \App\Models\Core\StatusAcompanhamentoModel::insert([
+            ['id' => 1, 'nome' => 'A agendar', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 2, 'nome' => 'Agendado', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 3, 'nome' => 'Acompanhamento', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 4, 'nome' => 'Desistência', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 5, 'nome' => 'Concluído', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+        ]);
+
+        \App\Models\Core\SituacaoSocialModel::insert([
+            ['id' => 1, 'nome' => 'Vulnerabilidade social', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 2, 'nome' => 'Baixa renda', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 3, 'nome' => 'Renda média', 'created_at' => $createdAt, 'updated_at' => $createdAt],
+            ['id' => 4, 'nome' => 'Renda alta', 'created_at' => $createdAt, 'updated_at' => $createdAt],            
+        ]);
     }
 }
