@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <th>Status do Acompanhamento</th>
-                    <td>{{$unidadeProdutiva->status_acompanhamento->nome}}</td>
+                    <td>{{$unidadeProdutiva->status_acompanhamento ? $unidadeProdutiva->status_acompanhamento->nome : ''}}</td>
                 </tr>                
 
                 <tr>

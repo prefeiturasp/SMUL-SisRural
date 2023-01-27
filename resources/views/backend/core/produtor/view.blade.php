@@ -217,7 +217,7 @@
             </tr>
             <tr>
                 <th>Situação social</th>
-                <td>{{ $produtor->situacaoSocial->nome }}</td>
+                <td>{{ $produtor->situacaoSocial ? $produtor->situacaoSocial->nome : '' }}</td>
             </tr>
             <tr>
                 <th>Reside na Unidade Produtiva?</th>
