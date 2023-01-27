@@ -91,7 +91,7 @@ function selectAutoNoYes(idSelect, idCard) {
                     $(idCard).removeClass("d-none");
                 }
             } else {
-                if ($(this).val() == 0) {
+                if ($(this).val() === "0") {
                     $(idCard).removeClass("d-none");
                 } else {
                     $(idCard).addClass("d-none");
