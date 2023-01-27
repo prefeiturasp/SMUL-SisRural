@@ -83,6 +83,7 @@ class ProdutorModel extends Model
         'rendimento_comercializacao_id',
         'outras_fontes_renda',
         'grau_instrucao_id',
+        'situacao_social_id',
 
         'user_id',
 
@@ -144,6 +145,11 @@ class ProdutorModel extends Model
     public function grauInstrucao()
     {
         return $this->belongsTo(GrauInstrucaoModel::class, 'grau_instrucao_id');
+    }
+
+    public function situacaoSocial()
+    {
+        return $this->belongsTo(SituacaoSocialModel::class, 'situacao_social_id');
     }
 
 

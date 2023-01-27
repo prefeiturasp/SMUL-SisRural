@@ -193,7 +193,10 @@
                 <th>Grau de instrução</th>
                 <td>{{ $produtor->grauInstrucao ? $produtor->grauInstrucao->nome : '' }}</td>
             </tr>
-
+            <tr>
+                <th>Situação social</th>
+                <td>{{ $produtor->situacaoSocial->nome }}</td>
+            </tr>
             <tr>
                 <th>Reside na Unidade Produtiva?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_reside_unidade_produtiva) }}</td>

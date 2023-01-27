@@ -330,6 +330,14 @@ class ProdutorForm extends Form
                 'empty_value' => 'Selecione',
                 'choices' => \App\Models\Core\GrauInstrucaoModel::pluck('nome', 'id')->sortBy('nome')->toArray(),
             ]
+        )->add(
+            'situacao_social_id',
+            'select',
+            [
+                'label' => 'Situação Social',
+                'empty_value' => 'Selecione',
+                'choices' => \App\Models\Core\SituacaoSocialModel::pluck('nome', 'id')->sortBy('nome')->toArray(),
+            ]            
         )->add('fl_reside_unidade_produtiva',
             'select',
             [
