@@ -129,10 +129,11 @@ trait ProdutorUnidadeProdutivaTrait
                 return @$row->pivot->tipoPosse->nome;
             })->addColumn('actions', function ($row) {
                 $params = ['pivot' => $row->pivot->id, 'produtor' => $row->pivot->produtor_id];
-
-                $editUrl = route('admin.core.produtor.edit-unidade-produtiva', $params);
+                
+                $externalEditUrl = route('admin.core.unidade_produtiva.edit', $row->pivot->id);
+                $relationEditUrl = route('admin.core.produtor.edit-unidade-produtiva', $params);
                 $deleteUrl = route('admin.core.produtor.delete-unidade-produtiva', $params);
-                return view('backend.components.form-actions.index', compact('editUrl', 'deleteUrl', 'row'));
+                return view('backend.components.form-actions.index', compact('externalEditUrl', 'relationEditUrl', 'deleteUrl', 'row'));
             })
             ->make(true);
     }

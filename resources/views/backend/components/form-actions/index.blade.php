@@ -39,6 +39,22 @@
         @endcan
     @endif
 
+    @if (@$relationEditUrl)
+        @can('update', @$row)
+            <a href="{!! $relationEditUrl !!}" aria-label="Editar relação" class="btn btn-primary" title="Editar relação">                
+                <i class="fas fa-exchange-alt"></i>
+            </a>
+        @endcan
+    @endif
+
+    @if (@$externalEditUrl)
+        @can('update', @$row)
+            <a href="{!! $externalEditUrl !!}" target="_blank" aria-label="Editar" class="btn btn-primary" title="Editar">
+                <i class="fa fa-pencil-alt"></i>
+            </a>
+        @endcan
+    @endif
+
     @if (@$addUrl)
         <a href="{!! $addUrl !!}" aria-label="Adicionar" class="btn btn-primary">
             <i class="fa fa-plus"></i>
