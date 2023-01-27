@@ -347,39 +347,41 @@ class ProdutorForm extends Form
         )->add('card-endereco-start', 'fieldset-start', [
             'id' => 'card-endereco',
             'title' => 'Endereço'
-        ])->add('cep', 'text', [
-            'label' => 'CEP (Código de Endereçamento Postal)',
-            'attr' => [
-                '_mask' => '99999-999',
-            ],
+        // ])->add('cep', 'text', [
+        //     'label' => 'CEP (Código de Endereçamento Postal)',
+        //     'attr' => [
+        //         '_mask' => '99999-999',
+        //     ],
         ])->add('endereco', 'text', [
             'label' => 'Endereço',
         ])->add('bairro', 'text', [
             'label' => 'Bairro',
         ])->add('subprefeitura', 'text', [
             'label' => 'Distrito',            
-        ])->add(
-                'cidade_id',
-                'select',
-                [
-                    'label' => 'Município',
-                    'empty_value' => 'Selecione',
-                    'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
-                    'rules' => 'required',
-                    'error' => __('validation.required', ['attribute' => 'Município'])
-        ])->add(
-                'estado_id',
-                'select',
-                [
-                    'label' => 'Estado',
-                    'empty_value' => 'Selecione',
-                    'choices' => \App\Models\Core\EstadoModel::orderByRaw('FIELD(uf, "SP") DESC, nome')->pluck('nome', 'id')->toArray(),
-                    'rules' => 'required',
-                    'error' => __('validation.required', ['attribute' => 'Estado'])
-        ])->add('card-dados-end', 'card-end', [
-
         ])->add('card-endereco-end', 'fieldset-end', []);
 
+        $this->add(
+            'estado_id',
+            'select',
+            [
+                'label' => 'Estado',
+                'empty_value' => 'Selecione',
+                'choices' => \App\Models\Core\EstadoModel::orderByRaw('FIELD(uf, "SP") DESC, nome')->pluck('nome', 'id')->toArray(),
+                'rules' => 'required',
+                'error' => __('validation.required', ['attribute' => 'Estado'])
+        ])->add(
+            'cidade_id',
+            'select',
+            [
+                'label' => 'Município',
+                'empty_value' => 'Selecione',
+                'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
+                'rules' => 'required',
+                'error' => __('validation.required', ['attribute' => 'Município'])
+        ])->add(
+            'card-dados-end', 'card-end', [            
+        ]);
+        
         $this->add('custom-redirect', 'hidden');
     }
 }

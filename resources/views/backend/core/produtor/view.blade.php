@@ -99,6 +99,8 @@
                 <th><abbr title="Registro Geral">RG</abbr></th>
                 <td>{{ $produtor->rg }}</td>
             </tr>
+
+            @if($produtor->fl_cnpj)
             <tr>
                 <th>Possui <abbr title="Cadastro Nacional de Pessoa Jurídica">CNPJ</abbr>?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_cnpj) }}</td>
@@ -107,6 +109,9 @@
                 <th><abbr title="Cadastro Nacional de Pessoa Jurídica">CNPJ</abbr></th>
                 <td>{{ $produtor->cnpj }}</td>
             </tr>
+            @endif
+
+            @if($produtor->fl_nota_fiscal_produtor)
             <tr>
                 <th>Possui Nota Fiscal de Produtor?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_nota_fiscal_produtor) }}</td>
@@ -115,8 +120,9 @@
                 <th>Número Nota Fiscal de Produtor</th>
                 <td>{{ $produtor->nota_fiscal_produtor }}</td>
             </tr>
+            @endif
 
-
+            @if ($produtor->fl_agricultor_familiar)
             <tr>
                 <th>É Agricultor/a Familiar?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_agricultor_familiar) }}</td>
@@ -133,8 +139,17 @@
                 <th>Validade <abbr title="Declaração de Aptidão ao Pronaf">DAP</abbr></th>
                 <td>{{ \Carbon\Carbon::parse($produtor->agricultor_familiar_data)->format('d/m/Y') }}</td>
             </tr>
+            @endif
+
+        </table>
+    @endslot
+    @endcardater
+
+    @cardater(['title'=>'Assistência Técnica', 'titleTag'=>'h2', 'id'=>'bloco-assistencia-tecnica'])
+    @slot('body')
+        <table class="table table-hover">
             <tr>
-                <th>Recebe Assistência Técnica?</th>
+                <th width="20%">Recebe Assistência Técnica?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_assistencia_tecnica) }}</td>
             </tr>
             <tr>
@@ -145,6 +160,13 @@
                 <th>Periodicidade da Assistência Técnica</th>
                 <td>{{ $produtor->assistencia_tecnica_periodo }}</td>
             </tr>
+        </table>
+    @endslot
+    @endcardater
+
+    @cardater(['title'=>'Outras informações', 'titleTag'=>'h2'])
+    @slot('body')
+        <table class="table table-hover">            
             <tr>
                 <th>Contrata mão-de-obra externa?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_contrata_mao_de_obra_externa) }}</td>
@@ -201,7 +223,9 @@
                 <th>Reside na Unidade Produtiva?</th>
                 <td>{{ boolean_sim_nao_sem_resposta($produtor->fl_reside_unidade_produtiva) }}</td>
             </tr>
-            <tr>
+
+            @if($produtor->fl_reside_unidade_produtiva === 0)
+            <tr id='cep'>
                 <th><abbr title="Código de Endereçamento Postal">CEP</abbr></th>
                 <td>{{ $produtor->cep }}</td>
             </tr>
@@ -216,7 +240,9 @@
             <tr>
                 <th>Distrito</th>
                 <td>{{ $produtor->subprefeitura }}</td>
-            </tr>            
+            </tr>
+            @endif
+
             <tr>
                 <th>Município</th>
                 <td>{{ $produtor->cidade ? $produtor->cidade->nome : '' }}</td>

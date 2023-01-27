@@ -243,6 +243,6 @@ body .select2-container--bootstrap.select2-container--open .select2-selection {
     z-index: 1000;
 }
 
-#card-sente-pressoes-sociais, #bloco-assistencia-tecnica {
+#card-sente-pressoes-sociais, #bloco-assistencia-tecnica, #cep {
     display: none;
 }
