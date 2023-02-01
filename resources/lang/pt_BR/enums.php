@@ -58,7 +58,7 @@ return [
         TipoTemplatePerguntaEnum::Check => 'Uma Resposta',
         TipoTemplatePerguntaEnum::MultipleCheck => 'Múltiplas Respostas',
         TipoTemplatePerguntaEnum::Data => 'Data',
-        TipoTemplatePerguntaEnum::Data => 'Hora',
+        TipoTemplatePerguntaEnum::Hora => 'Hora',
     ],
 
     PlanoAcaoClassificacaoEnum::class => [
