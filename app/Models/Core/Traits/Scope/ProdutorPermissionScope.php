@@ -27,10 +27,8 @@ class ProdutorPermissionScope implements Scope
             if ($user->isAdmin() || $user->isAdminLOP()) return;
 
             if ($user->can('view same domain farmers') || $user->can('view same operational units farmers')) {
-                $builder->has('unidadesProdutivasScoped');
-
-                //Não existe mais a possibilidade de cadastrar um produtor sem uma unidade produtiva
-                // ->orDoesntHave('unidadesProdutivasNS');
+                $builder->has('unidadesProdutivasScoped')
+                ->orDoesntHave('unidadesProdutivasNS');
             }
         }
     }
