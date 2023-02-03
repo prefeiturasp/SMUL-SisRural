@@ -130,7 +130,7 @@ trait ProdutorUnidadeProdutivaTrait
             })->addColumn('actions', function ($row) {
                 $params = ['pivot' => $row->pivot->id, 'produtor' => $row->pivot->produtor_id];
                 
-                $externalEditUrl = route('admin.core.unidade_produtiva.edit', $row->pivot->id);
+                $externalEditUrl = route('admin.core.unidade_produtiva.edit', $row->id);
                 $relationEditUrl = route('admin.core.produtor.edit-unidade-produtiva', $params);
                 $deleteUrl = route('admin.core.produtor.delete-unidade-produtiva', $params);
                 return view('backend.components.form-actions.index', compact('externalEditUrl', 'relationEditUrl', 'deleteUrl', 'row'));
