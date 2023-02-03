@@ -21,6 +21,15 @@ use Kris\LaravelFormBuilder\FormBuilderTrait;
 use App\Services\UnidadeProdutivaService;
 use Exception;
 
+# Includes por conta da necessidade de instanciar o ChecklistUnidadeProdutivaRepository
+use App\Models\Core\ChecklistModel;
+use App\Models\Core\PlanoAcaoModel;
+use \App\Models\Core\PlanoAcaoItemModel;
+use App\Repositories\Backend\Core\ChecklistUnidadeProdutivaRepository;
+use App\Repositories\Backend\Core\PlanoAcaoItemRepository;
+use App\Repositories\Backend\Core\PlanoAcaoRepository;
+
+
 class UnidadeProdutivaController extends Controller
 {
     use FormBuilderTrait;
@@ -242,13 +251,27 @@ class UnidadeProdutivaController extends Controller
             route('admin.core.novo_produtor_unidade_produtiva.unidade_produtiva_update', compact('produtor', 'unidadeProdutiva')) :
             route('admin.core.unidade_produtiva.update', compact('unidadeProdutiva'));
 
+
+        // Definição do checklist de dados adicionais da UP
+        if(config('app.checklist_dados_adicionais_unidade_produtiva')){
+            // Aqui é necessário definir uma forma melhor de manter o produtor. O ideal seria produtor nulo.
+            $produtor_cl = $unidadeProdutiva->produtores()->first();
+            $checklist_id = config('app.checklist_dados_adicionais_unidade_produtiva');
+            $checklist = ChecklistModel::find($checklist_id);
+            $unidProdutivaRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor_cl, $unidadeProdutiva);
+        } else {
+            $unidProdutivaRespostas = NULL;
+            $checklist = NULL;
+        }
+
         $form = $formBuilder->create(UnidadeProdutivaForm::class, [
             'id' => 'form-builder',
             'method' => 'PATCH',
             'url' => $urlForm,
             'class' => 'needs-validation',
             'novalidate' => true,
-            'model' => $unidadeProdutiva,
+            'model' => $unidadeProdutiva->toArray() + $unidProdutivaRespostas, // envia dados da UP e dados do checklist serializado
+            'data' => ['checklist' => $checklist],
             'enctype' => 'multipart/form-data'
         ]);
 
@@ -293,7 +316,19 @@ class UnidadeProdutivaController extends Controller
         $data = $request->all();
         try {
             $unidadeProdutiva = $this->repository->update($unidadeProdutiva, $data);
-        } catch (Exception $e) {
+
+            // Salvando dados das respostas do checklist. Para isso foi preciso longo caminho para
+            // instanciar o ChecklistUnidadeProdutivaRepository            
+            $planoAcaoItem = new PlanoAcaoItemModel();
+            $planoAcaoItemRepository = new PlanoAcaoItemRepository($planoAcaoItem);
+            $planoAcao = new PlanoAcaoModel();
+            $planoAcaoRepository = new PlanoAcaoRepository($planoAcao, $planoAcaoItemRepository);
+            $checklistUnidadeProdutiva = $unidadeProdutiva->checklists()->first();
+            $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);
+            $data['status'] = "rascunho";
+            $checklistUnidadeProdutivaRepository->update($checklistUnidadeProdutiva, $data);
+
+        } catch (Exception $e) {                
             return redirect()->back()->withErrors(__('validation.productive_unit_coverage_fails'))->withInput();
         }
 

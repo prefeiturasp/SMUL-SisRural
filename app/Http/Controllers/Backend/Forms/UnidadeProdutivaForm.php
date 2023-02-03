@@ -18,6 +18,7 @@ use App\Models\Core\RiscoContaminacaoAguaModel;
 use App\Models\Core\SoloCategoriaModel;
 use App\Models\Core\TipoFonteAguaModel;
 use Kris\LaravelFormBuilder\Form;
+use App\Enums\TipoPerguntaEnum;
 
 /**
  * Formulário - Unidade Produtiva
@@ -58,17 +59,18 @@ class UnidadeProdutivaForm extends Form
                 'fl_fora_da_abrangencia_app',
                 'hidden'
             )->add('card-end-1', 'card-end', []);
-        } else if ($this->model && $this->model->produtores) {
-            $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
-
-            $this->add('produtor', 'static', [
-                'label' => 'Produtores/as',
-                'tag' => 'b',
-                'value' => join(", ", $this->model->produtores->pluck('nome')->toArray())
-            ]);
-
-            $this->add('card-end-pr', 'card-end');
         }
+        // } else if ($this->model && $this->model->produtores) {
+        //     $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
+
+        //     $this->add('produtor', 'static', [
+        //         'label' => 'Produtores/as',
+        //         'tag' => 'b',
+        //         'value' => join(", ", $this->model->produtores->pluck('nome')->toArray())
+        //     ]);
+
+        //     $this->add('card-end-pr', 'card-end');
+        // }
 
         /**
          * Bloco Dados Básicos
@@ -109,7 +111,7 @@ class UnidadeProdutivaForm extends Form
             [
                 'label' => 'Município',
                 'empty_value' => 'Selecione',
-                'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
+                'choices' => @$this->model['estado_id'] ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model['estado_id'])->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
                 'rules' => 'required',
                 'error' => __('validation.required', ['attribute' => 'Município'])
             ]
@@ -141,6 +143,185 @@ class UnidadeProdutivaForm extends Form
             ]        
         )->add('card-dados-end', 'card-end');
 
+        /**
+         * Bloco Dados Checklist
+         */
+
+        if( isset($this->data['checklist']) && $this->data['checklist'] ){
+            $checklist = $this->data['checklist'];
+            $categorias = $checklist->categorias()->with('perguntas', 'perguntas.respostas')->get();
+
+            foreach ($categorias as $k => $categoria) {
+                //Ignora categorias sem perguntas
+                if (count($categoria->perguntas) == 0) {
+                    continue;
+                }
+
+                $this->add('card-start-' . $categoria->id, 'card-start', [
+                    'title' => $categoria->nome . $checklist->id,
+                    'titleTag' => 'h2'
+                ]);
+
+                foreach ($categoria->perguntas as $k => $v) { //checklist_pergunta
+                    // if($k == 17){
+                    //     print_r($v);
+                    // }
+                    // $helperTextPda = '';
+                    // if ($itensUltimoPda) {
+                    //     $checklist_pergunta_id = $v->pivot->id;
+                    //     $itemPda = @$itensUltimoPda[$checklist_pergunta_id];
+
+                    //     if ($itemPda) {
+                    //         $helperTextPda = 'Ação planejada anteriormente: ' . $itemPda->descricao . '<span class="text-primary"><br>Status: ' . PlanoAcaoItemStatusEnum::toSelectArray()[$itemPda->status] . '</span>';
+                    //     } else {
+                    //         $helperTextPda = 'Não tem.';
+                    //     }
+                    // }
+
+                    $tipo_pergunta = $v->tipo_pergunta;
+
+                    $labelPergunta = $v->pergunta . ($v->pivot->fl_obrigatorio ? '*' : '');
+
+                    $textoApoio = $v['texto_apoio'];// . ($v['texto_apoio'] ? '<br>' . $helperTextPda : $helperTextPda);
+
+                    if ($tipo_pergunta == TipoPerguntaEnum::Semaforica || $tipo_pergunta == TipoPerguntaEnum::SemaforicaCinza || $tipo_pergunta == TipoPerguntaEnum::Binaria || $tipo_pergunta == TipoPerguntaEnum::BinariaCinza) {
+                        $respostas = collect($v['respostas']);
+                        $respostasColorAr = $respostas->pluck('cor', 'id')->toArray();
+                        $respostasAr = $respostas->pluck('descricao', 'id')->toArray();
+
+                        $this->add(
+                            $v['id'],
+                            'select',
+                            [
+                                'label' => $labelPergunta,
+                                'choices' => $respostasAr,
+                                'empty_value' => 'Selecione',
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                                'attr' => [
+                                    'data-option-color' => join(",", $respostasColorAr),
+                                ]
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::NumericaPontuacao || $tipo_pergunta == TipoPerguntaEnum::Numerica) {
+                        $this->add(
+                            $v['id'],
+                            'number',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                                'attr' => [
+                                    'step' => 'any'
+                                ]
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::Texto) {
+                        $this->add(
+                            $v['id'],
+                            'textarea',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                                'attr' => [
+                                    'rows' => 2
+                                ]
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::Data) {
+                        $this->add(
+                            $v['id'],
+                            'date',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::Hora) {
+                        $this->add(
+                            $v['id'],
+                            'time',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::MultiplaEscolha) {
+                        $respostas = collect($v['respostas'])->pluck('descricao', 'id')->toArray();
+
+                        $this->add(
+                            $v['id'],
+                            'select',
+                            [
+                                'label' => $labelPergunta,
+                                'choices' => $respostas,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                                'attr' => [
+                                    'multiple' => 'multiple',
+                                ],
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::EscolhaSimples || $tipo_pergunta == TipoPerguntaEnum::EscolhaSimplesPontuacao || $tipo_pergunta == TipoPerguntaEnum::EscolhaSimplesPontuacaoCinza) {
+                        $respostas = collect($v['respostas'])->pluck('descricao', 'id')->toArray();
+
+                        $this->add(
+                            $v['id'],
+                            'select',
+                            [
+                                'label' => $labelPergunta,
+                                'choices' => $respostas,
+                                'empty_value' => 'Selecione',
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::Tabela) {
+                        $this->add(
+                            $v['id'],
+                            'text',
+                            [
+                                'label' => $labelPergunta,
+                                'help_block' => [
+                                    'text' => $textoApoio
+                                ],
+                                'attr' => [
+                                    'class' => 'form-control input-tabela',
+                                    'data-colunas' => $v['tabela_colunas'],
+                                    'data-linhas' => $v['tabela_linhas']
+                                ],
+                            ]
+                        );
+                    } else if ($tipo_pergunta == TipoPerguntaEnum::Anexo) {
+                        $upload_max_filesize = AppHelper::return_bytes(ini_get('upload_max_filesize'));
+                        $this->add(
+                            $v['id'],
+                            'file',
+                            [
+                                'label' => $labelPergunta,
+                                'rules' => 'max:' . $upload_max_filesize . '|mimes:doc,docx,pdf,ppt,pptx,xls,xlsx,png,jpg,jpeg,gif,txt,kml,shp', //required|
+                                "maxlength" => $upload_max_filesize,
+                                'help_block' => [
+                                    'text' => $textoApoio . '<br>Tamanho máximo do arquivo: ' . ini_get('upload_max_filesize'),
+                                ],
+                            ]
+                        );
+                    }
+                }
+
+                $this->add('card-end-' . $categoria->id, 'card-end');
+            }
+        }        
 
         /**
          * Bloco das Coordenadas (lat/lng)
@@ -231,9 +412,9 @@ class UnidadeProdutivaForm extends Form
         $this->add('card-solo-start', 'card-start', [
             'title' => 'Uso do Solo',
         ])->add('area_total_solo', 'number', [
-            'label' => 'Área total da propriedade (' . env('UNIDADE_MEDIDA_AREA_SIGLA') . ')',
+            'label' => 'Área total da propriedade (' . config('app.area_sigla') . ')',
         ])->add('area_produtiva', 'number', [
-            'label' => 'Área produtiva (' . env('UNIDADE_MEDIDA_AREA_SIGLA') . ')',
+            'label' => 'Área produtiva (' . config('app.area_sigla') . ')',
         ])->add('observacoes_sobre_area', 'text', [
             'label' => 'Observações sobre a área',                        
         ])->add('card-solo-end', 'card-end', []);
@@ -283,7 +464,7 @@ class UnidadeProdutivaForm extends Form
                 'id' => 'card-producao-processa',
             ]
         ])->add('card-processa-end', 'card-end', []);
-
+        
 
         /**
          * Bloco - Comercialização
@@ -415,7 +596,7 @@ class UnidadeProdutivaForm extends Form
             ],
         ])->add('card-pressao-social-end', 'fieldset-end', [])
             ->add('card-pressoes-sociais-end', 'card-end', []);
-
+        
 
         /**
          * Bloco Croqui - Anexo
@@ -436,8 +617,12 @@ class UnidadeProdutivaForm extends Form
 
         /**
          * Bloco - N Arquivos (adicionado iframe via JS)
-         */
+         */         
 
         $this->add('custom-redirect', 'hidden');
+
+        $this->add('checklist_id', 'hidden')
+            ->add('produtor_id', 'hidden')
+            ->add('unidade_produtiva_id', 'hidden');
     }
 }

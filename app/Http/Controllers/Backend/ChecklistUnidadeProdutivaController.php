@@ -328,7 +328,7 @@ class ChecklistUnidadeProdutivaController extends Controller
      * @param  UnidadeProdutivaModel $unidadeProdutiva
      * @return mixed
      */
-    private function getRespostas(ChecklistModel $checklist,  ProdutorModel $produtor, UnidadeProdutivaModel $unidadeProdutiva)
+    public static function getRespostas(ChecklistModel $checklist,  ProdutorModel $produtor, UnidadeProdutivaModel $unidadeProdutiva)
     {
         $respostas = UnidadeProdutivaRespostaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->get()->toArray();
 

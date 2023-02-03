@@ -263,4 +263,6 @@ return [
     'endpoint_bi' => env('ENDPOINT_BI', 'http://localhost/'),
     'area' => env('UNIDADE_MEDIDA_AREA', 'hectares'),
     'area_sigla' => env('UNIDADE_MEDIDA_AREA_SIGLA', 'ha'),
+    'checklist_dados_adicionais_unidade_produtiva' => env('CHECKLIST_DADOS_ADICIONAIS_UNIDADE_PRODUTIVA', NULL),
+    'checklist_dados_adicionais_produtora' => env('CHECKLIST_DADOS_ADICIONAIS_PRODUTORA', NULL),
 ];
