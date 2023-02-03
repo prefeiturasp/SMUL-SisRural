@@ -39,7 +39,7 @@ class InstalacoesForm extends Form
             ]
         ])->add('area', 'number', [
             'wrapper' => ['class' => 'form-group row card-area'],
-            'label' => 'Área (' . env('UNIDADE_MEDIDA_AREA_SIGLA') . ')',
+            'label' => 'Área (' . config('app.area_sigla') . ')',
             'attr' => [
                 'step' => 'any'
             ]

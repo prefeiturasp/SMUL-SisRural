@@ -26,7 +26,7 @@ class UnidadeProdutivaCaracterizacaoForm extends Form
                 'error' => __('validation.required', ['attribute' => 'Categoria'])
             ]
         )->add('area', 'number', [
-            'label' => 'Área (' . env('UNIDADE_MEDIDA_AREA_SIGLA') . ')',
+            'label' => 'Área (' . config('app.area_sigla') . ')',
             'wrapper' => ['class' => 'form-group row todos hectares'],
             'attr' => [
                 'step' => 'any'

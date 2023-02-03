@@ -261,4 +261,6 @@ return [
     ],
 
     'endpoint_bi' => env('ENDPOINT_BI', 'http://localhost/'),
+    'area' => env('UNIDADE_MEDIDA_AREA', 'hectares'),
+    'area_sigla' => env('UNIDADE_MEDIDA_AREA_SIGLA', 'ha'),
 ];

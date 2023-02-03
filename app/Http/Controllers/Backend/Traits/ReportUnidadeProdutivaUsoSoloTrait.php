@@ -64,7 +64,7 @@ trait ReportUnidadeProdutivaUsoSoloTrait
                     'ID',
                     'ID da Unidade Produtiva',
                     'Categoria',
-                    'Área ('.env('UNIDADE_MEDIDA_AREA_SIGLA').')',
+                    'Área ('.config('app.area_sigla').')',
                     'Número de espécies',
                     'Descrição',
                     'Agrobiodiversidade',
