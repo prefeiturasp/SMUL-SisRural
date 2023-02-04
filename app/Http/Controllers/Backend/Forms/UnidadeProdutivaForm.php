@@ -59,7 +59,7 @@ class UnidadeProdutivaForm extends Form
                 'fl_fora_da_abrangencia_app',
                 'hidden'
             )->add('card-end-1', 'card-end', []);
-        } else if ($this->data['produtores']) {
+        } else if (isset($this->data['produtores']) && isset($this->data['produtores'])) {
             $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
 
             $this->add('produtor', 'static', [

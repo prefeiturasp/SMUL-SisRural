@@ -24,6 +24,7 @@ use Exception;
 # Includes por conta da necessidade de instanciar o ChecklistUnidadeProdutivaRepository
 use App\Models\Core\ChecklistModel;
 use App\Models\Core\PlanoAcaoModel;
+use App\Models\Core\ChecklistUnidadeProdutivaModel;
 use \App\Models\Core\PlanoAcaoItemModel;
 use App\Repositories\Backend\Core\ChecklistUnidadeProdutivaRepository;
 use App\Repositories\Backend\Core\PlanoAcaoItemRepository;
@@ -259,9 +260,11 @@ class UnidadeProdutivaController extends Controller
             $checklist_id = config('app.checklist_dados_adicionais_unidade_produtiva');
             $checklist = ChecklistModel::find($checklist_id);
             $unidProdutivaRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor_cl, $unidadeProdutiva);
+            $model = $unidadeProdutiva->toArray() + $unidProdutivaRespostas; // envia dados da UP e dados do checklist serializado
         } else {
             $unidProdutivaRespostas = NULL;
             $checklist = NULL;
+            $model = $unidadeProdutiva->toArray();
         }
 
         $produtores = $unidadeProdutiva->produtores();
@@ -272,7 +275,7 @@ class UnidadeProdutivaController extends Controller
             'url' => $urlForm,
             'class' => 'needs-validation',
             'novalidate' => true,
-            'model' => $unidadeProdutiva->toArray() + $unidProdutivaRespostas, // envia dados da UP e dados do checklist serializado
+            'model' => $model,
             'data' => ['checklist' => $checklist, 'produtores' => $produtores],
             'enctype' => 'multipart/form-data'
         ]);
@@ -319,18 +322,31 @@ class UnidadeProdutivaController extends Controller
         try {
             $unidadeProdutiva = $this->repository->update($unidadeProdutiva, $data);
 
-            // Salvando dados das respostas do checklist. Para isso foi preciso longo caminho para
-            // instanciar o ChecklistUnidadeProdutivaRepository            
-            $planoAcaoItem = new PlanoAcaoItemModel();
-            $planoAcaoItemRepository = new PlanoAcaoItemRepository($planoAcaoItem);
-            $planoAcao = new PlanoAcaoModel();
-            $planoAcaoRepository = new PlanoAcaoRepository($planoAcao, $planoAcaoItemRepository);
-            $checklistUnidadeProdutiva = $unidadeProdutiva->checklists()->first();
-            $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);
-            $data['status'] = "rascunho";
-            $checklistUnidadeProdutivaRepository->update($checklistUnidadeProdutiva, $data);
+            if(config('app.checklist_dados_adicionais_unidade_produtiva')){
+                // Salvando dados das respostas do checklist. Para isso foi preciso longo caminho para
+                // instanciar o ChecklistUnidadeProdutivaRepository                
+                $planoAcaoItem = new PlanoAcaoItemModel();
+                $planoAcaoItemRepository = new PlanoAcaoItemRepository($planoAcaoItem);
+                $planoAcao = new PlanoAcaoModel();
+                $planoAcaoRepository = new PlanoAcaoRepository($planoAcao, $planoAcaoItemRepository);
+                $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->where('checklist_id', config('app.checklist_dados_adicionais_unidade_produtiva'))->first();
+
+                $data['status'] = "rascunho";
+
+                if($checklistUnidadeProdutiva){
+                    // checklist existe e só precisa ser atualizado
+                    $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);                   
+                    $checklistUnidadeProdutivaRepository->update($checklistUnidadeProdutiva, $data);
+                } else {
+                    // checklist a ser criado
+                    $checklistUnidadeProdutiva = new ChecklistUnidadeProdutivaModel();
+                    $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);                   
+                    $checklistUnidadeProdutivaRepository->create($data);
+                }
+            }
 
         } catch (Exception $e) {                
+            var_dump($e);exit;
             return redirect()->back()->withErrors(__('validation.productive_unit_coverage_fails'))->withInput();
         }
 
