@@ -59,18 +59,17 @@ class UnidadeProdutivaForm extends Form
                 'fl_fora_da_abrangencia_app',
                 'hidden'
             )->add('card-end-1', 'card-end', []);
+        } else if ($this->data['produtores']) {
+            $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
+
+            $this->add('produtor', 'static', [
+                'label' => 'Produtores/as',
+                'tag' => 'b',
+                'value' => join(", ", $this->data['produtores']->pluck('nome')->toArray())
+            ]);
+
+            $this->add('card-end-pr', 'card-end');
         }
-        // } else if ($this->model && $this->model->produtores) {
-        //     $this->add('card-start-pr', 'card-start', ['title' => 'Informações Gerais']);
-
-        //     $this->add('produtor', 'static', [
-        //         'label' => 'Produtores/as',
-        //         'tag' => 'b',
-        //         'value' => join(", ", $this->model->produtores->pluck('nome')->toArray())
-        //     ]);
-
-        //     $this->add('card-end-pr', 'card-end');
-        // }
 
         /**
          * Bloco Dados Básicos

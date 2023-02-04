@@ -264,6 +264,8 @@ class UnidadeProdutivaController extends Controller
             $checklist = NULL;
         }
 
+        $produtores = $unidadeProdutiva->produtores();
+
         $form = $formBuilder->create(UnidadeProdutivaForm::class, [
             'id' => 'form-builder',
             'method' => 'PATCH',
@@ -271,7 +273,7 @@ class UnidadeProdutivaController extends Controller
             'class' => 'needs-validation',
             'novalidate' => true,
             'model' => $unidadeProdutiva->toArray() + $unidProdutivaRespostas, // envia dados da UP e dados do checklist serializado
-            'data' => ['checklist' => $checklist],
+            'data' => ['checklist' => $checklist, 'produtores' => $produtores],
             'enctype' => 'multipart/form-data'
         ]);
 
