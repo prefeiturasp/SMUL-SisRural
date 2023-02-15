@@ -66,7 +66,14 @@ class UnidadeProdutivaController extends Controller
      */
     public function view(UnidadeProdutivaModel $unidadeProdutiva)
     {
-        return view('backend.core.unidade_produtiva.view', compact('unidadeProdutiva'));
+        if(config('app.checklist_dados_adicionais_unidade_produtiva')){            
+            $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->where('checklist_id', config('app.checklist_dados_adicionais_unidade_produtiva'))->first();
+            $categorias = $checklistUnidadeProdutiva->getCategoriasAndRespostasChecklist();
+        } else {
+            $categorias = NULL;
+        }
+
+        return view('backend.core.unidade_produtiva.view', compact('unidadeProdutiva', 'categorias'));
     }
 
     /**

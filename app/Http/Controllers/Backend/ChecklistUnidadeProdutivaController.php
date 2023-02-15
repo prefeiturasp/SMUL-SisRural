@@ -857,7 +857,7 @@ class ChecklistUnidadeProdutivaController extends Controller
             }
 
             $form->add('card-start-' . $categoria->id, 'card-start', [
-                'title' => $categoria->nome . $checklist->id,
+                'title' => $categoria->nome,
                 'titleTag' => 'h2'
             ]);
 
