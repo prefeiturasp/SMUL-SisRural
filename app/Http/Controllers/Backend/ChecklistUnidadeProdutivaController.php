@@ -75,6 +75,16 @@ class ChecklistUnidadeProdutivaController extends Controller
 
         $data = @$produtor->id ? $data->where('produtor_id', $produtor->id) : $data;
 
+        // Impede a exibição dos checklists configurados como Dados Adicionais das páginas da Unidade Produtiva e Produtora. Estes só podem ser editados nos respectivos formulários.
+        if(config('app.checklist_dados_adicionais_unidade_produtiva')){
+            $data->where('checklist_id', '!=', config('app.checklist_dados_adicionais_unidade_produtiva'));
+        }
+        if(config('app.checklist_dados_adicionais_produtora')){
+            $data->where('checklist_id', '!=', config('app.checklist_dados_adicionais_produtora'));
+        }
+
+
+
         return DataTables::of($data)
             ->editColumn('usuario.first_name', function ($row) {
                 return $row->usuario->full_name;

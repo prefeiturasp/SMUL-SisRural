@@ -32,10 +32,16 @@ class ChecklistModel extends Model
     }
 
     /**
-     * Utilizado apenas para não mostrar os checklists em modo "rascunho" e "inativos" na listagem de Aplicação
+     * Utilizado apenas para não mostrar os checklists em modo "rascunho" e "inativos" na listagem de Aplicação e nem exibir os checklists usados para dados adicionais através do arquivo de configuração .env. Estes só podem ser preenchidos via formulário da produtora ou UP.
      */
     public function scopePublicado($query)
     {
+        if(config('app.checklist_dados_adicionais_unidade_produtiva')){
+            $query->where('id', '!=', config('app.checklist_dados_adicionais_unidade_produtiva'));
+        }
+        if(config('app.checklist_dados_adicionais_produtora')){
+            $query->where('id', '!=', config('app.checklist_dados_adicionais_produtora'));
+        }        
         return $query->where('status', TemplateChecklistStatusEnum::Publicado);
     }
 
