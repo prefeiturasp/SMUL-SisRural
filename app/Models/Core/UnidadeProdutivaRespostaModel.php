@@ -26,7 +26,7 @@ class UnidadeProdutivaRespostaModel extends Model
 
     protected $table = 'unidade_produtiva_respostas';
 
-    protected $fillable = ['id', 'pergunta_id', 'resposta_id', 'unidade_produtiva_id', 'resposta', 'deleted_at'];
+    protected $fillable = ['id', 'pergunta_id', 'resposta_id', 'unidade_produtiva_id', 'produtor_id', 'resposta', 'deleted_at'];
 
     protected $keyType = 'string';
 

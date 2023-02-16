@@ -281,7 +281,7 @@ class ChecklistUnidadeProdutivaRepository extends BaseRepository
             $resposta = $isTexto ? $v : null;
 
             if ($v) {
-                $where = ['unidade_produtiva_id' => $checklistUnidadeProdutiva->unidade_produtiva_id, 'pergunta_id' => $k];
+                $where = ['unidade_produtiva_id' => $checklistUnidadeProdutiva->unidade_produtiva_id, 'produtor_id' => $checklistUnidadeProdutiva->produtor_id, 'pergunta_id' => $k];
 
                 //Se for um array (multipla-escolha), salva todas as respostas
                 if (is_array($v)) {
@@ -294,7 +294,7 @@ class ChecklistUnidadeProdutivaRepository extends BaseRepository
                     }
                 } else {
                     //Se for uma escolha, salva o "resposta" e "resposta_id", dependendo o tipo de pergunta é um campo.
-                    $model = UnidadeProdutivaRespostaModel::updateOrCreate(['unidade_produtiva_id' => $checklistUnidadeProdutiva->unidade_produtiva_id, 'pergunta_id' => $k], ['resposta_id' => $template_resposta_id, 'resposta' => @$resposta]);
+                    $model = UnidadeProdutivaRespostaModel::updateOrCreate(['unidade_produtiva_id' => $checklistUnidadeProdutiva->unidade_produtiva_id, 'produtor_id' => $checklistUnidadeProdutiva->produtor_id, 'pergunta_id' => $k], ['resposta_id' => $template_resposta_id, 'resposta' => @$resposta]);
 
                     //Faz o upload caso seja um "anexo"
                     if ($tipo == TipoPerguntaEnum::Anexo) {

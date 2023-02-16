@@ -353,7 +353,6 @@ class UnidadeProdutivaController extends Controller
             }
 
         } catch (Exception $e) {                
-            var_dump($e);exit;
             return redirect()->back()->withErrors(__('validation.productive_unit_coverage_fails'))->withInput();
         }
 

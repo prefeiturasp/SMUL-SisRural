@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Forms;
 use App\Enums\CheckboxEnum;
 use App\Enums\ProdutorUnidadeProdutivaStatusEnum;
 use Kris\LaravelFormBuilder\Form;
+use App\Http\Controllers\Backend\ChecklistUnidadeProdutivaController;
 
 /**
  * Formulário do Produtor
@@ -375,13 +376,24 @@ class ProdutorForm extends Form
             [
                 'label' => 'Município',
                 'empty_value' => 'Selecione',
-                'choices' => @$this->model->estado_id ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model->estado_id)->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
+                'choices' => @$this->model['estado_id'] ? \App\Models\Core\CidadeModel::where('estado_id', @$this->model['estado_id'])->pluck('nome', 'id')->sortBy('nome')->toArray() : [],
                 'rules' => 'required',
                 'error' => __('validation.required', ['attribute' => 'Município'])
         ])->add(
             'card-dados-end', 'card-end', [            
         ]);
+
+        /**
+         * Bloco Dados Checklist
+         */
+
+         if( isset($this->data['checklist']) && $this->data['checklist'] ){
+            ChecklistUnidadeProdutivaController::getForm( $this->data['checklist'], $this);
+        }                    
         
         $this->add('custom-redirect', 'hidden');
+        $this->add('checklist_id', 'hidden')
+        ->add('unidade_produtiva_id', 'hidden')
+        ->add('produtor_id', 'hidden');
     }
 }

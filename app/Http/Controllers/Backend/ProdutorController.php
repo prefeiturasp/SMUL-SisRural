@@ -17,6 +17,16 @@ use App\Models\Core\ProdutorUnidadeProdutivaModel;
 use App\Models\Core\UnidadeProdutivaModel;
 use Carbon\Carbon;
 
+# Includes por conta da necessidade de instanciar o ChecklistUnidadeProdutivaRepository
+use App\Models\Core\ChecklistModel;
+use App\Models\Core\PlanoAcaoModel;
+use App\Models\Core\ChecklistUnidadeProdutivaModel;
+use \App\Models\Core\PlanoAcaoItemModel;
+use App\Repositories\Backend\Core\ChecklistUnidadeProdutivaRepository;
+use App\Repositories\Backend\Core\PlanoAcaoItemRepository;
+use App\Repositories\Backend\Core\PlanoAcaoRepository;
+
+
 class ProdutorController extends Controller
 {
     use FormBuilderTrait;
@@ -190,16 +200,30 @@ class ProdutorController extends Controller
             route('admin.core.novo_produtor_unidade_produtiva.produtor_update', compact('produtor', 'unidadeProdutiva')) :
             route('admin.core.produtor.update', compact('produtor'));
 
+        // Definição do checklist de dados adicionais da Produtora
+        if(config('app.checklist_dados_adicionais_produtora')){
+            // Aqui é necessário definir uma forma melhor de manter a UP. O ideal seria UP nula.
+            $checklist_id = config('app.checklist_dados_adicionais_produtora');
+            $checklist = ChecklistModel::find($checklist_id);
+            $checklistRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor, $unidadeProdutiva);
+            $model = $produtor->toArray() + $unidadeProdutiva->toArray() + $checklistRespostas; // envia dados da produtora e dados do checklist serializado
+        } else {
+            $unidProdutivaRespostas = NULL;
+            $checklist = NULL;
+            $model = $produtor->toArray();
+        }
+
         $form = $formBuilder->create(ProdutorForm::class, [
             'id' => 'form-builder',
             'method' => 'PATCH',
             'url' => $urlForm,
             'class' => 'needs-validation',
             'novalidate' => true,
-            'model' => $produtor
+            'model' => $model,
+            'data' => ['checklist' => $checklist],
         ]);
 
-        $title = 'Editar Produtor';
+        $title = 'Editar Produtor/a';
 
         $containerId = 'iframeUnidadeProdutiva';
         $containerSrc = route('admin.core.produtor.search-unidade-produtiva', compact('produtor'));
@@ -234,6 +258,29 @@ class ProdutorController extends Controller
 
         $data = $request->all();
         $this->repository->update($produtor, $data);
+
+        if(config('app.checklist_dados_adicionais_produtora')){
+            // Salvando dados das respostas do checklist. Para isso foi preciso longo caminho para
+            // instanciar o ChecklistUnidadeProdutivaRepository                
+            $planoAcaoItem = new PlanoAcaoItemModel();
+            $planoAcaoItemRepository = new PlanoAcaoItemRepository($planoAcaoItem);
+            $planoAcao = new PlanoAcaoModel();
+            $planoAcaoRepository = new PlanoAcaoRepository($planoAcao, $planoAcaoItemRepository);
+            $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('produtor_id', $produtor->id)->where('checklist_id', config('app.checklist_dados_adicionais_produtora'))->first();
+
+            $data['status'] = "rascunho";
+
+            if($checklistUnidadeProdutiva){
+                // checklist existe e só precisa ser atualizado
+                $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);                   
+                $checklistUnidadeProdutivaRepository->update($checklistUnidadeProdutiva, $data);
+            } else {
+                // checklist a ser criado
+                $checklistUnidadeProdutiva = new ChecklistUnidadeProdutivaModel();
+                $checklistUnidadeProdutivaRepository = new ChecklistUnidadeProdutivaRepository($checklistUnidadeProdutiva, $planoAcaoRepository);
+                $checklistUnidadeProdutivaRepository->create($data);
+            }
+        }
 
         //Rota especial quando a edição vem do "cadastro rápido de um produtor/unidade produtiva" (NovoProdutorUnidadeProdutivaController)
         if (@$unidadeProdutiva->id) {
