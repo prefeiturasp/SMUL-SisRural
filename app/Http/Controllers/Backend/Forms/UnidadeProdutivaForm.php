@@ -449,8 +449,10 @@ class UnidadeProdutivaForm extends Form
 
         $this->add('custom-redirect', 'hidden');
 
-        $this->add('checklist_id', 'hidden')
-            ->add('produtor_id', 'hidden')
+        $this->add('checklist_id', 'hidden')            
             ->add('unidade_produtiva_id', 'hidden');
+        if (!@$produtor) {
+            $this->add('produtor_id', 'hidden');
+        }
     }
 }
