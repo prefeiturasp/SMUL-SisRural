@@ -172,7 +172,11 @@ class ChecklistUnidadeProdutivaModel extends Model
      */
     public function respostasUnidadeProdutivaMany()
     {
-        return $this->hasMany(UnidadeProdutivaRespostaModel::class, 'unidade_produtiva_id', 'unidade_produtiva_id');
+        if(config('app.checklist_dados_adicionais_produtora') && $this->checklist_id == config('app.checklist_dados_adicionais_produtora')){
+            return $this->hasMany(UnidadeProdutivaRespostaModel::class, 'produtor_id', 'produtor_id');
+        } else {
+            return $this->hasMany(UnidadeProdutivaRespostaModel::class, 'unidade_produtiva_id', 'unidade_produtiva_id');
+        }
     }
 
     /**

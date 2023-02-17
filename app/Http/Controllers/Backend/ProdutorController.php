@@ -50,7 +50,14 @@ class ProdutorController extends Controller
      */
     public function view(ProdutorModel $produtor)
     {
-        return view('backend.core.produtor.view', compact('produtor'));
+        if(config('app.checklist_dados_adicionais_produtora')){            
+            $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('produtor_id', $produtor->id)->where('checklist_id', config('app.checklist_dados_adicionais_produtora'))->first();
+            $categorias = $checklistUnidadeProdutiva->getCategoriasAndRespostasChecklist();
+        } else {
+            $categorias = NULL;
+        }
+
+        return view('backend.core.produtor.view', compact('produtor', 'categorias'));
     }
 
     /**

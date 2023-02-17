@@ -145,6 +145,10 @@
     @endslot
     @endcardater
 
+    @if ($categorias)
+        @include('backend.core.checklist.view_respostas', ['categorias' => $categorias])
+    @endif
+
     @cardater(['title'=>'Assistência Técnica', 'titleTag'=>'h2', 'id'=>'bloco-assistencia-tecnica'])
     @slot('body')
         <table class="table table-hover">
