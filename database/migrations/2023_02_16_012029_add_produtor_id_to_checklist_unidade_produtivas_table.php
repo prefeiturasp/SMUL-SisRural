@@ -14,9 +14,7 @@ class AddProdutorIdToChecklistUnidadeProdutivasTable extends Migration
     public function up()
     {
         Schema::table('checklist_unidade_produtivas', function (Blueprint $table) {
-            $table->string('produtor_id', 255)->nullable();
-            $table->foreign('produtor_id')->references('id')
-            ->on('produtores')->onDelete('set null');            
+            $table->string('produtor_id', 255)->nullable()->change();            
             $table->string('unidade_produtiva_id', 255)->nullable()->change();
         });
     }
@@ -28,9 +26,8 @@ class AddProdutorIdToChecklistUnidadeProdutivasTable extends Migration
      */
     public function down()
     {
-        Schema::table('checklist_unidade_produtivas', function (Blueprint $table) {
-            $table->dropForeign(['produtor_id']);
-            $table->dropColumn('produtor_id');
+        Schema::table('checklist_unidade_produtivas', function (Blueprint $table) {            
+            $table->string('produtor_id', 255)->change();
             $table->string('unidade_produtiva_id', 255)->change();
         });
     }

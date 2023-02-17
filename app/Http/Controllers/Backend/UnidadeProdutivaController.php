@@ -261,9 +261,7 @@ class UnidadeProdutivaController extends Controller
 
 
         // Definição do checklist de dados adicionais da UP
-        if(config('app.checklist_dados_adicionais_unidade_produtiva')){
-            // Aqui é necessário definir uma forma melhor de manter o produtor. O ideal seria produtor nulo.
-            // $produtor_cl = $unidadeProdutiva->produtores()->first();
+        if(config('app.checklist_dados_adicionais_unidade_produtiva')){            
             $checklist_id = config('app.checklist_dados_adicionais_unidade_produtiva');
             $checklist = ChecklistModel::find($checklist_id);
             $unidProdutivaRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, NULL, $unidadeProdutiva);
@@ -336,7 +334,7 @@ class UnidadeProdutivaController extends Controller
                 $planoAcaoItemRepository = new PlanoAcaoItemRepository($planoAcaoItem);
                 $planoAcao = new PlanoAcaoModel();
                 $planoAcaoRepository = new PlanoAcaoRepository($planoAcao, $planoAcaoItemRepository);
-                $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->where('checklist_id', config('app.checklist_dados_adicionais_unidade_produtiva'))->first();
+                $checklistUnidadeProdutiva = ChecklistUnidadeProdutivaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->where('checklist_id', config('app.checklist_dados_adicionais_unidade_produtiva'))->where('produtor_id', NULL)->first();
 
                 $data['status'] = "rascunho";
 
