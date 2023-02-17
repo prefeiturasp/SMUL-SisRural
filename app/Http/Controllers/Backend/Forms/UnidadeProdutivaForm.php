@@ -451,8 +451,5 @@ class UnidadeProdutivaForm extends Form
 
         $this->add('checklist_id', 'hidden')            
             ->add('unidade_produtiva_id', 'hidden');
-        if (!@$produtor) {
-            $this->add('produtor_id', 'hidden');
-        }
     }
 }

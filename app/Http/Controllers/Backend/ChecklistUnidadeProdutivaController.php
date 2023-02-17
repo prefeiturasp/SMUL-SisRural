@@ -340,11 +340,22 @@ class ChecklistUnidadeProdutivaController extends Controller
      * @param  UnidadeProdutivaModel $unidadeProdutiva
      * @return mixed
      */
-    public static function getRespostas(ChecklistModel $checklist,  ProdutorModel $produtor, UnidadeProdutivaModel $unidadeProdutiva)
+    public static function getRespostas(ChecklistModel $checklist,  ProdutorModel $produtor = NULL, UnidadeProdutivaModel $unidadeProdutiva = NULL)
     {
-        $respostas = UnidadeProdutivaRespostaModel::where('unidade_produtiva_id', $unidadeProdutiva->id)->where('produtor_id', $produtor->id)->get()->toArray();
+        if(!$produtor){
+            $produtor_id = NULL;
+        } else {
+            $produtor_id = $produtor->id;
+        }
+        if(!$unidadeProdutiva){
+            $unidadeProdutiva_id = NULL;
+        } else {
+            $unidadeProdutiva_id = $unidadeProdutiva->id;
+        }
 
-        $unidProdutivaRespostas = ['checklist_id' => $checklist->id, 'produtor_id' => $produtor->id, 'unidade_produtiva_id' => $unidadeProdutiva->id];
+        $respostas = UnidadeProdutivaRespostaModel::where('unidade_produtiva_id', $unidadeProdutiva_id)->where('produtor_id', $produtor_id)->get()->toArray();
+
+        $unidProdutivaRespostas = ['checklist_id' => $checklist->id, 'produtor_id' => $produtor_id, 'unidade_produtiva_id' => $unidadeProdutiva_id];
 
         foreach ($respostas as $k => $v) {
             $value = @$v['resposta_id'] ? $v['resposta_id'] : $v['resposta'];

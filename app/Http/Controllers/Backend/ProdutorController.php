@@ -205,7 +205,7 @@ class ProdutorController extends Controller
             // Aqui é necessário definir uma forma melhor de manter a UP. O ideal seria UP nula.
             $checklist_id = config('app.checklist_dados_adicionais_produtora');
             $checklist = ChecklistModel::find($checklist_id);
-            $checklistRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor, $unidadeProdutiva);
+            $checklistRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor, NULL);
             $model = $produtor->toArray() + $unidadeProdutiva->toArray() + $checklistRespostas; // envia dados da produtora e dados do checklist serializado
         } else {
             $unidProdutivaRespostas = NULL;

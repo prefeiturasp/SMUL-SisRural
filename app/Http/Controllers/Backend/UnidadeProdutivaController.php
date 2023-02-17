@@ -263,10 +263,10 @@ class UnidadeProdutivaController extends Controller
         // Definição do checklist de dados adicionais da UP
         if(config('app.checklist_dados_adicionais_unidade_produtiva')){
             // Aqui é necessário definir uma forma melhor de manter o produtor. O ideal seria produtor nulo.
-            $produtor_cl = $unidadeProdutiva->produtores()->first();
+            // $produtor_cl = $unidadeProdutiva->produtores()->first();
             $checklist_id = config('app.checklist_dados_adicionais_unidade_produtiva');
             $checklist = ChecklistModel::find($checklist_id);
-            $unidProdutivaRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, $produtor_cl, $unidadeProdutiva);
+            $unidProdutivaRespostas = ChecklistUnidadeProdutivaController::getRespostas($checklist, NULL, $unidadeProdutiva);
             $model = $unidadeProdutiva->toArray() + $unidProdutivaRespostas; // envia dados da UP e dados do checklist serializado
         } else {
             $unidProdutivaRespostas = NULL;
